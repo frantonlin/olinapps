@@ -18,23 +18,34 @@ passport.use('olin', new CustomStrategy(
 
           if (err) {
             return done(err);
-          } else if (res.statusCode != 200) {
-            err = res.statusCode;
-            return done(err, false);
           } else {
-            user = {
-            'username': username,
-            'dispname': /<t:DisplayName>(.+)<\/t:DisplayName>/g.exec(res.body)[1],
-            'email': /<t:EmailAddress>(.+)<\/t:EmailAddress>/g.exec(res.body)[1],
-            'department': /<t:Department>(.+)<\/t:Department>/g.exec(res.body)[1],
-            'jobtitle': /<t:JobTitle>(.+)<\/t:JobTitle>/g.exec(res.body)[1]
+            err = new Error();
+            switch (res.statusCode) {
+              case 200:
+                user = {
+                  'username': username,
+                  'dispname': /<t:DisplayName>(.+)<\/t:DisplayName>/g.exec(res.body)[1],
+                  'email': /<t:EmailAddress>(.+)<\/t:EmailAddress>/g.exec(res.body)[1],
+                  'department': /<t:Department>(.+)<\/t:Department>/g.exec(res.body)[1],
+                  'jobtitle': /<t:JobTitle>(.+)<\/t:JobTitle>/g.exec(res.body)[1]
+                };
+                return done(null, user);
+              case 500:
+                err.message = 'Internal Server Error';
+              case 401:
+                err.message = 'Unauthorized';
+              default:
+                err.message = 'Something went wrong';
             }
-            return done(null, user);
+            err.status = res.statusCode;
+            return done(err, false);
           }
         }
       );
     } else {
-      return done(400, false);
+      err = new Error('Bad Request');
+      err.status = 400;
+      return done(err, false);
     }
   }
 ));
@@ -66,7 +77,9 @@ var olinLogin = (username, password, done) => {
               </soap:Envelope>`;
 
   // TESTING - SKIP NTLM REQUEST
-  // return done(500);
+  // err = new Error('Test Error');
+  // err.status = 401;
+  // return done(err);
 
   httpntlm.post({
     url: url,

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {
@@ -8,7 +8,7 @@ import {
   white,
 } from 'material-ui/styles/colors';
 
-import Header from './Header';
+import HeaderContainer from './HeaderContainer';
 import Content from './Content';
 import Footer from './Footer';
 
@@ -29,7 +29,7 @@ const App = () => {
   return (
     <MuiThemeProvider muiTheme={muiTheme}>
       <div className="App">
-        <Header />
+        <HeaderContainer />
 
         <Content />
 

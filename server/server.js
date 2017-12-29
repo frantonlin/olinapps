@@ -4,7 +4,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var passport = require('./auth.js');
+var passport = require('./passport.js');
 
 var app = express();
 
@@ -33,7 +33,7 @@ app.use('/api', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Foundd');
+  var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });

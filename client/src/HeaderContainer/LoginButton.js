@@ -6,79 +6,37 @@ import Checkbox from 'material-ui/Checkbox';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
-var axios  = require('axios');
 
 class LoginButton extends Component {
   initialState = {
     open: false,
+    loading: false,
     usernameErrorText: '',
     passwordErrorText: '',
     loginErrorText: '',
-    loading: false,
   };
   state = this.initialState;
 
-  _validateUsername = (username) => {
-    if (username === '' || !/^[a-zA-Z0-9]+$/.test(username)) {
-      this.setState({usernameErrorText: 'enter a valid username'});
-      this.refs.username.focus();
-      return false;
-    } else {
-      this.setState({usernameErrorText: ''});
+  handleUsernameChange = (e, username) => {
+    if (this.props.isValidUsername(username)) {
+      this.setState({usernameErrorText: this.initialState.usernameErrorText});
       return true;
+    } else {
+      this.setState({usernameErrorText: this.props.usernameErrorText});
+      this.username.focus();
+      return false;
     }
   };
-  _validatePassword = (password) => {
-    if (password === '') {
-      this.setState({passwordErrorText: 'enter a password'});
-      this.refs.password.focus();
-      return false;
-    } else {
-      this.setState({passwordErrorText: ''});
+  handlePasswordChange = (e, password) => {
+    if (this.props.isValidPassword(password)) {
+      this.setState({passwordErrorText: this.initialState.passwordErrorText});
       return true;
+    } else {
+      this.setState({passwordErrorText: this.props.passwordErrorText});
+      this.password.focus();
+      return false;
     }
   };
-  _handleUsernameChange = (e) => {
-    this._validateUsername(e.target.value);
-  };
-  _handlePasswordChange = (e) => {
-    this._validatePassword(e.target.value);
-  };
-  _setLoginError = (text) => {
-    this.setState({loginErrorText: text});
-    this.refs.username.focus();
-  };
-  _login = (username, password) => {
-    var LoginDialog = this;
-    axios.post('/api/login', {
-      username: username,
-      password: password
-    })
-    .then(function (response) {
-      LoginDialog.setState({loading: false});
-      LoginDialog.handleClose();
-    })
-    .catch(function (error) {
-      if (error) {
-        LoginDialog.setState({loading: false});
-        switch (error.response.status) {
-          case 500: // httpntlm request failed, internal server error
-            LoginDialog._setLoginError("something's broken...");
-            break;
-          case 400: // sent bad httpntlm request
-            LoginDialog._setLoginError("something's broken...");
-            break;
-          case 401: // unauthorized
-            LoginDialog._setLoginError("invalid username/password");
-            LoginDialog.refs.username.focus();
-            break;
-          default: // something else?!?!
-            LoginDialog._setLoginError("something's really broken...");
-        }
-      }
-    });
-  };
-
   handleOpen = () => {
     this.setState({open: true});
   };
@@ -87,21 +45,32 @@ class LoginButton extends Component {
       this.setState(this.initialState);
     }
   };
-
   handleLogin = (e) => {
     e.preventDefault();
 
-    const username = this.refs.username.getValue();
-    const password = this.refs.password.getValue();
-    const remember = this.refs.remember.isChecked();
-    const validated = this._validateUsername(username) && this._validatePassword(password);
+    const username = this.username.getValue();
+    const password = this.password.getValue();
+    const remember = this.remember.isChecked();
+  
+    const validated = this.handlePasswordChange(null, password) 
+        & this.handleUsernameChange(null, username);
 
     if (validated) {
-      this.setState({
-          loading: true,
-          loginErrorText: '',
+      this.setState({loading: true});
+      this.props.onLogin(username, password, remember)
+      .then(response => {
+        this.setState({loading: false});
+        this.handleClose();
+      })
+      .catch(error => {
+        this.setState({loading: false});
+        if (error.response.status === 401) {
+          this.setState({loginErrorText: this.props.unauthorizedText});
+          this.username.focus();
+        } else {
+          this.setState({loginErrorText: this.props.loginErrorText});
+        }
       });
-      this._login(username, password)
     }
   };
 
@@ -172,28 +141,31 @@ class LoginButton extends Component {
                 left={dialogWidth/2-loadingSize/2}
                 top={dialogHeight/2-loadingSize/2}
                 loadingColor={muiTheme.palette.accent1Color}
-                status={this.state.loading ? "loading":"loading"}
+                status={this.state.loading ? "loading":"hide"}
                 style={style.loading} />
           </div>
 
           <form onSubmit={this.handleLogin} style={style.loginForm}>
             <span style={style.loginError}>{this.state.loginErrorText}</span>
-            <TextField name="username" ref="username"
+            <TextField name="username"
+                ref={input => this.username = input}
                 type="text" hintText="username"
                 disabled={this.state.loading}
                 errorText={this.state.usernameErrorText}
-                onChange={this._handleUsernameChange}
+                onChange={this.handleUsernameChange}
                 fullWidth={true} spellCheck="false"
                 autoCorrect="off" autoComplete="off"
                 autoCapitalize="off"
                 autoFocus />
-            <TextField name="password" ref="password"
+            <TextField name="password"
+                ref={input => this.password = input}
                 type="password" hintText="password"
                 disabled={this.state.loading}
                 errorText={this.state.passwordErrorText}
-                onChange={this._handlePasswordChange}
+                onChange={this.handlePasswordChange}
                 fullWidth={true} />
-            <Checkbox name="remember" ref="remember"
+            <Checkbox name="remember"
+              ref={input => this.remember = input}
                 label="remember me" disabled={this.state.loading}
                 defaultChecked={true}
                 style={style.checkbox} />
@@ -213,5 +185,11 @@ class LoginButton extends Component {
     );
   }
 }
+LoginButton.defaultProps = {
+  usernameErrorText: 'enter a valid username',
+  passwordErrorText: 'enter a password',
+  unauthorizedText: 'invalid username/password',
+  loginErrorText: 'something\'s broken...'
+};
 
 export default muiThemeable()(LoginButton);
