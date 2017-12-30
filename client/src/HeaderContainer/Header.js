@@ -3,12 +3,12 @@ import muiThemeable from 'material-ui/styles/muiThemeable';
 import AppBar from 'material-ui/AppBar';
 import {white} from 'material-ui/styles/colors';
 import {fade} from 'material-ui/utils/colorManipulator';
-import LoginButtonContainer from './LoginButtonContainer'
+import LoginDialogButton from './LoginDialogButton';
 
-const Header = (props) => {
+const Header = ({ muiTheme, title, onTitleClick }) => {
   const style = {
     appBar: {
-      backgroundColor: props.muiTheme.palette.accent1Color,
+      backgroundColor: muiTheme.palette.accent1Color,
     },
     title: {
       display: 'table',
@@ -27,13 +27,13 @@ const Header = (props) => {
 
   return (
     <AppBar
-        title={props.title}
+        title={title}
         titleStyle={style.title}
-        onTitleClick={props.onTitleClick}
+        onTitleClick={onTitleClick}
         showMenuIconButton={false}
         iconElementRight={
           <span style={style.buttonContainer}>
-            <LoginButtonContainer
+            <LoginDialogButton
                 hoverColor={style.hoverColor}
                 rippleColor={style.rippleColor}
                 style={style.button} />

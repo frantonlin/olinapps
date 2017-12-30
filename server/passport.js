@@ -9,13 +9,6 @@ passport.use('olin', new CustomStrategy(
       olinLogin(req.body.username, req.body.password, 
         (err, res) => {
 
-          // TESTING - ADD DELAY
-          // var start = Date.now(),
-          //     now = start;
-          // while (now - start < 2000) {
-          //   now = Date.now();
-          // }
-
           if (err) {
             return done(err);
           } else {
@@ -76,7 +69,13 @@ var olinLogin = (username, password, done) => {
                 </soap:Body>
               </soap:Envelope>`;
 
-  // TESTING - SKIP NTLM REQUEST
+  // // TESTING - ADD DELAY
+  // var start = Date.now(),
+  //     now = start;
+  // while (now - start < 2000) {
+  //   now = Date.now();
+  // }
+  // // TESTING - SKIP NTLM REQUEST
   // err = new Error('Test Error');
   // err.status = 401;
   // return done(err);
