@@ -1,33 +1,33 @@
 import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {
-  blueGrey100, blueGrey500, blueGrey700,
-  pink100, pink500, pink700,
-  grey900,
-  white,
-} from 'material-ui/styles/colors';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import pink from 'material-ui/colors/pink';
+import blueGrey from 'material-ui/colors/blueGrey';
+import red from 'material-ui/colors/red';
 
 import HeaderContainer from './HeaderContainer';
 import Content from './Content';
 import Footer from './Footer';
 
-const muiTheme = getMuiTheme({
-  palette: {
-    primary1Color: blueGrey500,
-    primary2Color: blueGrey700,
-    primary3Color: blueGrey100,
-    accent1Color: pink500,
-    accent2Color: pink700,
-    accent3Color: pink100,
-    textColor: grey900,
-    alternateTextColor: white,
-  },
-});
+let palette = {
+  primary: blueGrey,
+  secondary: pink,
+  error: red,
+};
+palette.error.A400 = red['500'];
+const theme = createMuiTheme({
+  palette,
+  overrides: {
+    MuiAppBar: {
+      colorAccent: {
+        backgroundColor: palette.secondary['500'],
+      },
+    },
+  }
+})
 
 const App = () => {
   return (
-    <MuiThemeProvider muiTheme={muiTheme}>
+    <MuiThemeProvider theme={theme}>
       <div className="App">
         <HeaderContainer />
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from 'material-ui/Button';
 var axios  = require('axios');
 
 class Content extends Component {
@@ -22,8 +22,7 @@ class Content extends Component {
     return (
       <div>
         <br/>
-        <RaisedButton label="Get User"
-            onClick={this.handleTest} />
+        <Button onClick={this.handleTest}>Get User</Button>
         <p>{this.state.authText}</p>
       </div>
     );

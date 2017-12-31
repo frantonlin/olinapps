@@ -1,48 +1,89 @@
 import React, { Component } from 'react';
-import muiThemeable from 'material-ui/styles/muiThemeable';
-import Dialog from 'material-ui/Dialog';
+
+import { withStyles } from 'material-ui/styles'
+import Dialog, {
+  DialogActions,
+  DialogContent,
+} from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
+import { FormControlLabel } from 'material-ui/Form';
 import Checkbox from 'material-ui/Checkbox';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import DialogLoadingIndicator from './DialogLoadingIndicator';
+import Button from 'material-ui/Button';
+import DisabledLoadingIndicator from './DisabledLoadingIndicator';
+
+const styles = theme => ({
+  DialogContent: {
+    maxWidth: '280px',
+    paddingTop: '20px',
+    paddingBottom: '0px',
+  },
+  error: {
+    color: theme.palette.error.A400,
+    fontFamily: theme.typography.fontFamily,
+    fontSize: theme.typography.pxToRem(12),
+    textAlign: 'left',
+    marginTop: theme.spacing.unit,
+    lineHeight: '1em',
+    minHeight: '1em',
+    margin: 0,
+  },
+  disabled: {
+    color: theme.palette.action.disabled,
+  }
+});
 
 class LoginDialog extends Component {
   initialState = {
     loginErrorText: '',
     usernameErrorText: '',
     passwordErrorText: '',
+    username:'',
+    password:'',
+    remember:true,
   };
   state = this.initialState;
 
-  validateInput = (value, validate, input) => {
-    const errorText = validate(value);
+  form = {
+    username: {
+      name: 'username',
+      validate: this.props.validateUsername,
+      stateErrorText: 'usernameErrorText',
+      ref: 'usernameInput',
+    },
+    password: {
+      name: 'password',
+      validate: this.props.validatePassword,
+      stateErrorText: 'passwordErrorText',
+      ref: 'passwordInput',
+    },
+  }
+
+  handleInputChange = input => event => {
+    this.setState({[input.name]: event.target.value});
+    this.validateInput(event.target.value, input);
+  };
+  validateInput = (value, input) => {
+    const errorText = input.validate(value);
     if (errorText) {
-      input.setState({errorText});
-      input.focus();
+      this.setState({[input.stateErrorText]: errorText});
+      this[input.ref].focus();
       return false;
     }
-    input.setState({errorText: ''});
+    this.setState({[input.stateErrorText]: ''})
     return true;
   };
-  validateUsernameInput = (e, username) => {
-    return this.validateInput(username,
-        this.props.validateUsername, this.usernameInput);
-  };
-  validatePasswordInput = (e, password) => {
-    return this.validateInput(password,
-        this.props.validatePassword, this.passwordInput);
-  };
+  handleRememberChange= event => {
+    this.setState({remember: event.target.checked});
+  }
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({loginErrorText: ''});
 
-    const username = this.usernameInput.getValue();
-    const password = this.passwordInput.getValue();
-    const remember = this.rememberInput.isChecked();
-
-    const validated = this.validatePasswordInput(null, password)
-        & this.validateUsernameInput(null, username);
+    const username = this.state.username;
+    const password = this.state.password;
+    const remember = this.state.remember;
+    const validated = this.validateInput(password, this.form.password)
+        & this.validateInput(username, this.form.username);
 
     if (validated) {
       this.props.onLogin(username, password, remember)
@@ -59,90 +100,102 @@ class LoginDialog extends Component {
   };
   handleClose = () => {
     if (!this.props.loading) {
-      this.setState(this.initialState);
       this.props.onRequestClose();
     }
   };
 
+  // prevent visible changes on handleClose
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.open === true && this.props.open === false) {
+      this.setState(this.initialState);
+    }
+  };
+
   render() {
-    const dialogWidth = 320;
-    const dialogHeight = 230;
-    const style = {
-      dialog: {
-        width: dialogWidth+'px'
-      },
-      dialogBody: {
-        minHeight: dialogHeight+'px'
-      },
-      loginError: {
-        color: this.props.muiTheme.textField.errorColor,
-        fontSize: '12px',
-      },
-      checkbox : {
-        margin: '10px 0 20px 0'
-      },
-      cancelButton : {
-        width: '49%',
-        float: 'left',
-      },
-      loginButton: {
-        width: '49%',
-        float: 'right'
-      },
-    };
+    const { classes } = this.props;
+    const LoginError = this.state.loginErrorText!=='' ?
+      <div className={classes.error}>{this.state.loginErrorText}</div> :
+      null;
     
     return (
       <Dialog
-          modal={false}
-          open={this.props.open}
-          onRequestClose={this.handleClose}
-          contentStyle={style.dialog}
-          bodyStyle={style.dialogBody} >
+        open={this.props.open}
+        onClose={this.handleClose}
+      >
+        <DisabledLoadingIndicator size={45} isLoading={this.props.isLoading} />
+        <DialogContent className={classes.DialogContent}>
+          <form id="loginForm" onSubmit={this.handleSubmit} className={classes.container}>
+            {LoginError}
+            <TextField
+              autoFocus
+              placeholder="username"
+              inputRef={input => this.usernameInput = input}
+              type="text"
+              value={this.state.username}
+              onChange={this.handleInputChange(this.form.username)}
+              disabled={this.props.isLoading}
+              error={this.state.usernameErrorText!==''}
+              helperText={this.state.usernameErrorText}
+              InputProps={{
+                spellCheck: 'false',
+                autoCorrect: 'off',
+                autoComplete: 'off',
+                autoCapitalize: 'off',
+              }}
+              margin="dense"
+              fullWidth
+            />
+            <TextField
+              placeholder="password"
+              inputRef={input => this.passwordInput = input}
+              type="password"
+              value={this.state.password}
+              onChange={this.handleInputChange(this.form.password)}
+              disabled={this.props.isLoading}
+              error={this.state.passwordErrorText!==''}
+              helperText={this.state.passwordErrorText}
+              margin="dense"
+              fullWidth
+            />
 
-        <DialogLoadingIndicator
-            isLoading={this.props.isLoading}
-            dialogWidth={dialogWidth}
-            dialogHeight={dialogHeight} />
+            <FormControlLabel
+              label={
+                <span className={this.props.isLoading ? classes.disabled : null}>
+                  remember me
+                </span>
+              }
+              control={
+                <Checkbox
+                  ref={input => this.rememberInput = input}
+                  checked={this.state.remember}
+                  onChange={this.handleRememberChange}
+                />
+              }
+              disabled={this.props.isLoading}
+            />
+          </form>
+        </DialogContent>
 
-        <form onSubmit={this.handleSubmit} style={style.loginForm}>
-          <span style={style.loginError}>{this.state.loginErrorText}</span>
-          <TextField name="username"
-              ref={input => this.usernameInput = input}
-              type="text" hintText="username"
-              disabled={this.props.isLoading}
-              errorText={this.state.usernameErrorText}
-              onChange={this.validateUsernameInput}
-              fullWidth={true} spellCheck="false"
-              autoCorrect="off" autoComplete="off"
-              autoCapitalize="off"
-              autoFocus />
-          <TextField name="password"
-              ref={input => this.passwordInput = input}
-              type="password" hintText="password"
-              disabled={this.props.isLoading}
-              errorText={this.state.passwordErrorText}
-              onChange={this.validatePasswordInput}
-              fullWidth={true} />
-          <Checkbox name="remember"
-            ref={input => this.rememberInput = input}
-              label="remember me" disabled={this.props.isLoading}
-              defaultChecked={true}
-              style={style.checkbox} />
-
-          <FlatButton label="Cancel"
-              primary={true}
-              onClick={this.handleClose}
-              disabled={this.props.isLoading}
-              style={style.cancelButton} />
-          <RaisedButton label="Login"
-              type="submit"
-              secondary={true}
-              disabled={this.props.isLoading}
-              style={style.loginButton} />
-        </form>
+        <DialogActions>
+          <Button
+            onClick={this.handleClose}
+            color="primary"
+            disabled={this.props.isLoading}
+          >
+            cancel
+          </Button>
+          <Button
+            color="accent"
+            type="submit"
+            form="loginForm"
+            disabled={this.props.isLoading}
+          >
+            login
+          </Button>
+        </DialogActions>
       </Dialog>
     );
   };
 }
 
-export default muiThemeable()(LoginDialog);
+export default withStyles(styles)(LoginDialog);

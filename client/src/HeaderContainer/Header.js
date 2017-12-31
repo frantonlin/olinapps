@@ -1,46 +1,28 @@
 import React from 'react';
-import muiThemeable from 'material-ui/styles/muiThemeable';
+import { withStyles } from 'material-ui/styles'
 import AppBar from 'material-ui/AppBar';
-import {white} from 'material-ui/styles/colors';
-import {fade} from 'material-ui/utils/colorManipulator';
+import Toolbar from 'material-ui/Toolbar';
+import Typography from 'material-ui/Typography';
 import LoginDialogButton from './LoginDialogButton';
 
-const Header = ({ muiTheme, title, onTitleClick }) => {
-  const style = {
-    appBar: {
-      backgroundColor: muiTheme.palette.accent1Color,
-    },
-    title: {
-      display: 'table',
-      cursor: 'pointer',
-    },
-    buttonContainer: {
-      display: 'block',
-      paddingTop: '5px'
-    },
-    button: {
-      color: 'white',
-    },
-    hoverColor: fade(white, 0.21),
-    rippleColor: fade(white, 0.58),
-  };
+const styles = {
+  flex: {
+    flex: 1,
+  },
+};
+
+const Header = ({ classes, title }) => {
 
   return (
-    <AppBar
-        title={title}
-        titleStyle={style.title}
-        onTitleClick={onTitleClick}
-        showMenuIconButton={false}
-        iconElementRight={
-          <span style={style.buttonContainer}>
-            <LoginDialogButton
-                hoverColor={style.hoverColor}
-                rippleColor={style.rippleColor}
-                style={style.button} />
-          </span>
-        }
-        style={style.appBar} />
+    <AppBar position="static" color="accent">
+      <Toolbar>
+        <Typography type="title" color="inherit" className={classes.flex}>
+          {title}
+        </Typography>
+        <LoginDialogButton buttonColor='contrast' />
+      </Toolbar>
+    </AppBar>
   );
 }
 
-export default muiThemeable() (Header);
+export default withStyles(styles) (Header);

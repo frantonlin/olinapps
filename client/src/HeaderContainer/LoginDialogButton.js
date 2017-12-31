@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FlatButton from 'material-ui/FlatButton';
+import Button from 'material-ui/Button';
 import LoginDialog from './LoginDialog';
 var axios  = require('axios');
 
@@ -20,7 +20,6 @@ class LoginDialogButton extends Component {
   };
   handleLogin = (username, password, remember) => {
     this.setState({loading: true});
-    this.setState({loginErrorText: ''});
     return axios.post('/api/login', {
       username: username,
       password: password,
@@ -54,12 +53,9 @@ class LoginDialogButton extends Component {
   render() {
     return (
       <div>
-        <FlatButton label="Login"
-            hoverColor={this.props.hoverColor}
-            rippleColor={this.props.rippleColor}
-            onClick={this.handleOpen}
-            style={this.props.style} />
-
+        <Button color={this.props.buttonColor} onClick={this.handleOpen}>
+          login
+        </Button>
         <LoginDialog
             open={this.state.open}
             onRequestClose={this.handleClose}
