@@ -9,29 +9,29 @@ passport.use('olin', new CustomStrategy(
       olinLogin(req.body.username, req.body.password, 
         (err, res) => {
 
-          if (err) {
-            return done(err);
-          } else {
-            err = new Error();
-            switch (res.statusCode) {
-              case 200:
-                user = {
-                  'username': username,
-                  'dispname': /<t:DisplayName>(.+)<\/t:DisplayName>/g.exec(res.body)[1],
-                  'email': /<t:EmailAddress>(.+)<\/t:EmailAddress>/g.exec(res.body)[1],
-                  'department': /<t:Department>(.+)<\/t:Department>/g.exec(res.body)[1],
-                  'jobtitle': /<t:JobTitle>(.+)<\/t:JobTitle>/g.exec(res.body)[1]
-                };
-                return done(null, user);
-              case 500:
-                err.message = 'Internal Server Error';
-              case 401:
-                err.message = 'Unauthorized';
-              default:
-                err.message = 'Something went wrong';
-            }
-            err.status = res.statusCode;
-            return done(err, false);
+          if (err) {return done(err);}
+
+          err = new Error();
+          switch (res.statusCode) {
+            case 200:
+              user = {
+                'username': username,
+                'dispname': /<t:DisplayName>(.+)<\/t:DisplayName>/g.exec(res.body)[1],
+                'email': /<t:EmailAddress>(.+)<\/t:EmailAddress>/g.exec(res.body)[1],
+                'department': /<t:Department>(.+)<\/t:Department>/g.exec(res.body)[1],
+                'jobtitle': /<t:JobTitle>(.+)<\/t:JobTitle>/g.exec(res.body)[1]
+              };
+              return done(null, user);
+            case 401:
+              return done(null, false, {
+                statusCode: 401,
+                message: 'invalid username/password',
+              });
+            default:
+              return done(null, false, {
+                statusCode: res.statusCode,
+                message: 'something went wrong...',
+              });
           }
         }
       );
@@ -76,9 +76,18 @@ var olinLogin = (username, password, done) => {
   //   now = Date.now();
   // }
   // // TESTING - SKIP NTLM REQUEST
-  // err = new Error('Test Error');
+  // const err = new Error('Test Error');
   // err.status = 401;
   // return done(err);
+
+  // const body =
+  //  `<t:EmailAddress>testing.123@students.olin.edu</t:EmailAddress>
+  //   <t:DisplayName>Testing 123</t:DisplayName>
+  //   <t:CompanyName>Franklin W. Olin College of Testing 123</t:CompanyName>
+  //   <t:Department>Tester</t:Department>
+  //   <t:JobTitle>Class of 123</t:JobTitle>`;
+  // const res = new Response(body);
+  // res.statusCode = 200;
 
   httpntlm.post({
     url: url,

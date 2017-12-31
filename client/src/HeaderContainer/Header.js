@@ -3,7 +3,7 @@ import { withStyles } from 'material-ui/styles'
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import LoginDialogButton from './LoginDialogButton';
+import LoginDialogButtonContainer from '../LoginDialogButtonContainer';
 
 const styles = {
   flex: {
@@ -11,18 +11,18 @@ const styles = {
   },
 };
 
-const Header = ({ classes, title }) => {
-
+const Header = ({ classes, title, user }) => {
   return (
     <AppBar position="static" color="accent">
       <Toolbar>
         <Typography type="title" color="inherit" className={classes.flex}>
           {title}
         </Typography>
-        <LoginDialogButton buttonColor='contrast' />
+        <LoginDialogButtonContainer buttonColor='contrast' />
       </Toolbar>
     </AppBar>
   );
 }
 
-export default withStyles(styles) (Header);
+export default withStyles(styles)(Header);
+

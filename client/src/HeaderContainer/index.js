@@ -1,18 +1,12 @@
-import React, { Component } from 'react';
 import Header from './Header'
+import { connect } from 'react-redux'
 
-class HeaderContainer extends Component {
-  state = {
-    user: null
-  }
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  };
+};
 
-  render() {
-    return (
-      <Header
-          user={this.state.user}
-          title='OlinApps' />
-    );
-  }
-}
+const HeaderContainer = connect(mapStateToProps, null)(Header);
 
 export default HeaderContainer;

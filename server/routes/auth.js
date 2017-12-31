@@ -15,6 +15,8 @@ router.get('/login', (req, res) => {
 router.post('/login', (req, res, next) => {
   passport.authenticate('olin', (err, user, info) => {
     if (err) { return next(err); }
+    if (!user) { return res.json(info); }
+
     req.logIn(user, (err) => {
       if (err) { return next(err); }
       if (req.body.remember) {
@@ -22,15 +24,27 @@ router.post('/login', (req, res, next) => {
       } else {
         req.session.cookie.expires = false;
       }
-      return res.json(user);
+      const info = {
+        statusCode: 200,
+        user: user,
+      }
+      return res.json(info);
     });
   })(req, res, next)
 });
 
 /* POST logout */
-router.post('/logout', passport.authenticate('olin'),
+router.post('/logout',
   (req, res) => {
-    req.logout();
+    if (req.isAuthenticated()) {
+      req.logout();
+      req.session.destroy(function (err) {
+        if (err) { return next(err); }
+        return res.json({message: 'success'});
+      });
+    } else {
+      return res.status(400).json(400, {error: 'already logged out'});
+    }
 });
 
 module.exports = router;

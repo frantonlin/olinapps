@@ -91,23 +91,16 @@ class LoginDialog extends Component {
         if (loginErrorText) {
           this.setState({loginErrorText});
           this.usernameInput.focus();
-        } else {
-          this.setState({loading: false});
-          this.handleClose();
         }
       });
     }
   };
-  handleClose = () => {
-    if (!this.props.loading) {
-      this.props.onRequestClose();
-    }
-  };
 
-  // prevent visible changes on handleClose
   componentWillReceiveProps(nextProps) {
-    if (nextProps.open === true && this.props.open === false) {
-      this.setState(this.initialState);
+    if (nextProps.open === false && this.props.open === true) {
+      // set timeout for duration of leaving screen transition
+      // prevents visible changes on close
+      setTimeout(() => {this.setState(this.initialState)}, 195);
     }
   };
 
@@ -120,7 +113,7 @@ class LoginDialog extends Component {
     return (
       <Dialog
         open={this.props.open}
-        onClose={this.handleClose}
+        onClose={this.props.onRequestClose}
       >
         <DisabledLoadingIndicator size={45} isLoading={this.props.isLoading} />
         <DialogContent className={classes.DialogContent}>
@@ -178,7 +171,7 @@ class LoginDialog extends Component {
 
         <DialogActions>
           <Button
-            onClick={this.handleClose}
+            onClick={this.props.onRequestClose}
             color="primary"
             disabled={this.props.isLoading}
           >

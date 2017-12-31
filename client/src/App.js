@@ -29,7 +29,7 @@ const App = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <div className="App">
-        <HeaderContainer />
+        <HeaderContainer title='OlinApps' />
 
         <Content />
 
