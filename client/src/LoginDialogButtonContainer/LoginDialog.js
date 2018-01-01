@@ -142,6 +142,7 @@ class LoginDialog extends Component {
               placeholder="password"
               inputRef={input => this.passwordInput = input}
               type="password"
+              autoComplete="current-password"
               value={this.state.password}
               onChange={this.handleInputChange(this.form.password)}
               disabled={this.props.isLoading}
