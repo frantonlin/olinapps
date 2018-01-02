@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+require('dotenv').config({path: __dirname+'/../.env'});
 var defaultApps = require('./defaultApps');
 var db = require('../db');
 const pgp = db.$config.pgp;
@@ -13,9 +14,7 @@ console.log('Inserting Default Apps...');
 db.none(query)
 .then(() => {
   console.log('Success!');
-  process.exit();
 })
 .catch(error => {
-  console.log(error);
-  process.exit();
+  throw error
 });

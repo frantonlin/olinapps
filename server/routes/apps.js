@@ -9,7 +9,9 @@ router.get('/', (req, res, next) => {
     res.json(200, data);
   })
   .catch(error => {
-    return next(error);
+    err = new Error('Internal Server Error');
+    err.status = 500;
+    next(err);
   });
 });
 

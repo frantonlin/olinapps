@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+require('dotenv').config({path: __dirname+'/../.env'});
 var db = require('../db');
 const pgp = db.$config.pgp;
 
@@ -10,7 +11,7 @@ db.none('DROP TABLE IF EXISTS apps;')
   console.log('Dropped apps Table');
 })
 .catch(error => {
-  console.log(error);
+  throw error;
 })
 .then(() => {
   const createTable =
@@ -23,13 +24,11 @@ db.none('DROP TABLE IF EXISTS apps;')
       intranet BOOLEAN,
       keywords VARCHAR
     );`
-  db.none(createTable)
+  return db.none(createTable)
 })
 .then(data => {
   console.log('Created apps Table');
-  process.exit();
 })
 .catch(error => {
-  console.log(error);
-  process.exit();
+  throw error;
 });
