@@ -10,11 +10,13 @@
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "dotenv": "^4.0.0",
     "express": "~4.15.5",
     "express-session": "^1.15.6",
     "httpntlm": "^1.7.5",
     "morgan": "~1.9.0",
     "passport": "^0.4.0",
-    "passport-custom": "^1.0.5"
+    "passport-custom": "^1.0.5",
+    "pg-promise": "^7.3.2"
   }
 }

@@ -2,9 +2,9 @@ import App from './App'
 import { connect } from 'react-redux'
 import { login } from './LoginDialogButtonContainer/actions'
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    onLogin: (user) => {
+    onLogin: user => {
       dispatch(login(user));
     }
   };

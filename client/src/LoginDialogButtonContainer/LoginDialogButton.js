@@ -22,13 +22,13 @@ class LoginDialogButton extends Component {
       this.setState(this.initialState);
     }
   };
-  validateUsername = (username) => {
+  validateUsername = username => {
     if (username === '' || !/^[a-zA-Z0-9]+$/.test(username)) {
       return 'enter a valid username';
     }
     return;
   };
-  validatePassword = (password) => {
+  validatePassword = password => {
     if (password === '') {
       return 'enter a password';
     }

@@ -75,8 +75,8 @@ class LoginDialog extends Component {
   handleRememberChange= event => {
     this.setState({remember: event.target.checked});
   }
-  handleSubmit = (e) => {
-    e.preventDefault();
+  handleSubmit = event => {
+    event.preventDefault();
     this.setState({loginErrorText: ''});
 
     const username = this.state.username;

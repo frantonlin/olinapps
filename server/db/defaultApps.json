@@ -1,0 +1,322 @@
+[
+  {
+    "name": "CCO",
+    "url": "http://cco.olin.edu/",
+    "img_url": null,
+    "type": "Organization",
+    "intranet": false,
+    "keywords": "CCO Committee for Clubs and Organizations"
+  },
+  {
+    "name": "CORe",
+    "url": "http://core.olin.edu/wiki/CORe_Knowledge_Base",
+    "img_url": null,
+    "type": "Organization",
+    "intranet": true,
+    "keywords": "CORe Council of Olin Representatives"
+  },
+  {
+    "name": "Honor Board",
+    "url": "http://www.olin.edu/academic-life/student-affairs-resources/student-life/honor-code/",
+    "img_url": null,
+    "type": "Organization",
+    "intranet": false,
+    "keywords": "Honor Board"
+  },
+  {
+    "name": "SERV",
+    "url": "http://www.olin.edu/academic-life/student-affairs-resources/student-life/community-service/",
+    "img_url": null,
+    "type": "Organization",
+    "intranet": false,
+    "keywords": "SERV community service"
+  },
+  {
+    "name": "SLAC",
+    "url": "http://slac.io/",
+    "img_url": null,
+    "type": "Organization",
+    "intranet": false,
+    "keywords": "SLAC Stay Late and Create"
+  },
+  {
+    "name": "Academic Calendar",
+    "url": "http://www.olin.edu/students/academic-calendar-2017-18/",
+    "img_url": null,
+    "type": "Resource",
+    "intranet": false,
+    "keywords": "Academic Calendar"
+  },
+  {
+    "name": "Ad Astra",
+    "url": "http://scheduler.olin.edu/",
+    "img_url": null,
+    "type": "Resource",
+    "intranet": true,
+    "keywords": "Ad Astra AdAstra Scheduler room reservation reserve"
+  },
+  {
+    "name": "Dreamspark Webstore",
+    "url": "https://my.olin.edu/ICS/OlinDreamSpark_WebStore.jnz",
+    "img_url": null,
+    "type": "Resource",
+    "intranet": false,
+    "keywords": "Dreamspark Webstore software"
+  },
+  {
+    "name": "ECE Stockroom",
+    "url": "http://bit.ly/ece_stockroom",
+    "img_url": null,
+    "type": "Resource",
+    "intranet": false,
+    "keywords": "ECE Stockroom Request EE Form"
+  },
+  {
+    "name": "Events Calendar",
+    "url": "http://www.olin.edu/events/event-calendar/",
+    "img_url": null,
+    "type": "Resource",
+    "intranet": false,
+    "keywords": "Events Calendar"
+  },
+  {
+    "name": "Mailing Lists",
+    "url": "http://lists.olin.edu/",
+    "img_url": null,
+    "type": "Resource",
+    "intranet": false,
+    "keywords": "Mailing Lists email"
+  },
+  {
+    "name": "Olin Dining Menu",
+    "url": "http://rebeccascafe.com/olin/menu-items/",
+    "img_url": null,
+    "type": "Resource",
+    "intranet": false,
+    "keywords": "Olin Dining Menu Rebeccas Cafe"
+  },
+  {
+    "name": "Olin Images",
+    "url": "http://www.flickr.com/photos/olin/",
+    "img_url": null,
+    "type": "Resource",
+    "intranet": false,
+    "keywords": "Olin Images Photos olinimages flickr"
+  },
+  {
+    "name": "One Card",
+    "url": "https://eacct-olin-sp.blackboard.com/eaccounts/",
+    "img_url": null,
+    "type": "Resource",
+    "intranet": false,
+    "keywords": "One Card onecard"
+  },
+  {
+    "name": "Parking Ticket Appeal Form",
+    "url": "http://www.babson.edu/offices-services/public-safety/parking/Pages/parking-violation-appeal.aspx",
+    "img_url": null,
+    "type": "Resource",
+    "intranet": false,
+    "keywords": "Parking Ticket Appeal Form"
+  },
+  {
+    "name": "Babson Dining Menus",
+    "url": "https://www.dineoncampus.com/babson/whats-on-the-menu",
+    "img_url": null,
+    "type": "Resource",
+    "intranet": false,
+    "keywords": "Babson Dining Menus Trim"
+  },
+  {
+    "name": "Webmail",
+    "url": "https://webmail.olin.edu/",
+    "img_url": null,
+    "type": "Resource",
+    "intranet": false,
+    "keywords": "Webmail Outlook Web Access email owa"
+  },
+  {
+    "name": "Workorder Form",
+    "url": "http://workorders.olin.edu/",
+    "img_url": null,
+    "type": "Resource",
+    "intranet": false,
+    "keywords": "Workorder Form"
+  },
+  {
+    "name": "Olin Gear Store",
+    "url": "http://olingear.olin.edu/",
+    "img_url": null,
+    "type": "Resource",
+    "intranet": false,
+    "keywords": "Olin Gear Store"
+  },
+  {
+    "name": "ADP Portal",
+    "url": "http://portal.adp.com/",
+    "img_url": null,
+    "type": "Portal",
+    "intranet": false,
+    "keywords": "ADP Portal student employment"
+  },
+  {
+    "name": "my.olin.edu",
+    "url": "https://my.olin.edu/",
+    "img_url": null,
+    "type": "Portal",
+    "intranet": false,
+    "keywords": "my.olin.edu"
+  },
+  {
+    "name": "Olin Handshake",
+    "url": "https://olin.joinhandshake.com/",
+    "img_url": null,
+    "type": "Portal",
+    "intranet": false,
+    "keywords": "OlinJobFinder Olin Job Finder Handshake Careers"
+  },
+  {
+    "name": "FWOP",
+    "url": "http://fwop.olin.edu/",
+    "img_url": null,
+    "type": "Club",
+    "intranet": false,
+    "keywords": "FWOP Franklin W Olin Players"
+  },
+  {
+    "name": "HPV",
+    "url": "http://hpv.olin.edu/",
+    "img_url": null,
+    "type": "Club",
+    "intranet": false,
+    "keywords": "HVP Human Powered Vehicles"
+  },
+  {
+    "name": "Olin Baja",
+    "url": "http://www.olinbaja.com/",
+    "img_url": null,
+    "type": "Club",
+    "intranet": false,
+    "keywords": "Olin Mini Baja SAE"
+  },
+  {
+    "name": "Olin PowerChords",
+    "url": "http://www.olinpowerchords.com/",
+    "img_url": null,
+    "type": "Club",
+    "intranet": false,
+    "keywords": "Olin PowerChords a cappella'"
+  },
+  {
+    "name": "The Foundry",
+    "url": "http://olinfoundry.org/",
+    "img_url": null,
+    "type": "Club",
+    "intranet": false,
+    "keywords": "The Foundry startup"
+  },
+  {
+    "name": "AHS",
+    "url": "http://ahs.olin.edu/",
+    "img_url": null,
+    "type": "Department",
+    "intranet": false,
+    "keywords": "AHS Arts Humanities and Social Sciences"
+  },
+  {
+    "name": "Dining Services",
+    "url": "http://rebeccascafe.com/olin/",
+    "img_url": null,
+    "type": "Department",
+    "intranet": false,
+    "keywords": "Dining Services Rebeccas Cafe"
+  },
+  {
+    "name": "Facilities",
+    "url": "http://www.olin.edu/community/facilities/",
+    "img_url": null,
+    "type": "Department",
+    "intranet": false,
+    "keywords": "Facilities"
+  },
+  {
+    "name": "Library",
+    "url": "http://library.olin.edu/",
+    "img_url": null,
+    "type": "Department",
+    "intranet": false,
+    "keywords": "Library"
+  },
+  {
+    "name": "Machine Shop",
+    "url": "http://machineshop.olin.edu/",
+    "img_url": null,
+    "type": "Department",
+    "intranet": false,
+    "keywords": "Machine Shop"
+  },
+  {
+    "name": "Olin IT",
+    "url": "http://wikis.olin.edu/it/",
+    "img_url": null,
+    "type": "Department",
+    "intranet": false,
+    "keywords": "Olin IT Information Technology helpdesk"
+  },
+  {
+    "name": "PGP",
+    "url": "http://www.olin.edu/collaborate/careers-graduate-studies/",
+    "img_url": null,
+    "type": "Department",
+    "intranet": false,
+    "keywords": "PGP Post Graduate Planning Career Services"
+  },
+  {
+    "name": "StAR",
+    "url": "http://www.olin.edu/academic-life/student-affairs-and-resources/",
+    "img_url": null,
+    "type": "Department",
+    "intranet": false,
+    "keywords": "StAR Student Affairs and Resources"
+  },
+  {
+    "name": "Study Away",
+    "url": "http://www.olin.edu/students/study-away/",
+    "img_url": null,
+    "type": "Department",
+    "intranet": false,
+    "keywords": "Study Away Abroad"
+  },
+  {
+    "name": "Babson",
+    "url": "http://www.babson.edu/",
+    "img_url": null,
+    "type": "School",
+    "intranet": false,
+    "keywords": "Babson College"
+  },
+  {
+    "name": "Brandeis",
+    "url": "http://www.brandeis.edu/",
+    "img_url": null,
+    "type": "School",
+    "intranet": false,
+    "keywords": "Brandeis College"
+  },
+  {
+    "name": "Olin",
+    "url": "http://www.olin.edu/",
+    "img_url": null,
+    "type": "School",
+    "intranet": false,
+    "keywords": "Olin College"
+  },
+  {
+    "name": "Wellesley",
+    "url": "http://www.wellesley.edu/",
+    "img_url": null,
+    "type": "School",
+    "intranet": false,
+    "keywords": "Wellesley College"
+  }
+]

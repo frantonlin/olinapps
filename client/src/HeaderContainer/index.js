@@ -1,7 +1,7 @@
 import Header from './Header'
 import { connect } from 'react-redux'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     user: state.user
   };

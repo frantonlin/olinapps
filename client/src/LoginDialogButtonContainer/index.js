@@ -2,15 +2,15 @@ import LoginDialogButton from './LoginDialogButton'
 import { connect } from 'react-redux'
 import { login, logout } from './actions'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     user: state.user
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    onLogin: (user) => {
+    onLogin: user => {
       dispatch(login(user));
     },
     onLogout: () => {

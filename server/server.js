@@ -4,7 +4,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var passport = require('./passport.js');
+var passport = require('./passport');
+require('dotenv').config();
 
 var app = express();
 
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(session({
-  secret: 'cats are cool',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false } // set true after setting up SSL/HTTPS
@@ -22,14 +23,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-var api = express.Router();
-api.get('/', (req, res) => {
-  res.json({ message: 'OlinApps API' });
-});
-app.use('/api', api);
-
-var auth = require('./routes/auth');
-app.use('/api', auth);
+app.use('/api', require('./routes'));
+app.use('/api', require('./routes/auth'));
+app.use('/api/apps', require('./routes/apps'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
