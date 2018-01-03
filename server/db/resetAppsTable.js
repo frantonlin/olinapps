@@ -20,6 +20,8 @@ db.none('DROP TABLE IF EXISTS apps;')
       name VARCHAR,
       url VARCHAR,
       img_url VARCHAR,
+      letter CHAR(1),
+      color CHAR(7),
       type VARCHAR,
       intranet BOOLEAN,
       keywords VARCHAR

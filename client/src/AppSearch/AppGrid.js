@@ -20,7 +20,6 @@ const styles = theme => ({
   },
   flexDummy: {
     ...theme.mixins.appGridItem,
-    width: '128px',
     height: '0px',
     paddingTop: 0,
     paddingBottom: 0,

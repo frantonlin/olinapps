@@ -18,6 +18,9 @@ const styles = theme => ({
   },
   itemLetter: {
     fontSize: '5rem',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '4rem',
+    },
     fontWeight: '600',
     textTransform: 'uppercase',
     color: '#607D8B',

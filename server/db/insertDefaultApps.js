@@ -6,7 +6,7 @@ var db = require('../db');
 const pgp = db.$config.pgp;
 
 const columnSet = new pgp.helpers.ColumnSet(
-  ['name', 'url', 'img_url', 'type', 'intranet', 'keywords'],
+  ['name', 'url', 'img_url', 'letter', 'color', 'type', 'intranet', 'keywords'],
   {table: 'apps'});
 const query = pgp.helpers.insert(defaultApps, columnSet);
 
