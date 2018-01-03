@@ -28,7 +28,8 @@ const theme = createMuiTheme({
 })
 
 class App extends Component {
-  componentDidMount() {
+
+  getUser = () => {
     axios.get('/api/login')
     .then(response => {
       this.props.onLogin(response.data.user);
@@ -36,6 +37,10 @@ class App extends Component {
     .catch(error => {
       // do something errory?
     });
+  }
+
+  componentDidMount() {
+    this.getUser();
   }
 
   render() {
