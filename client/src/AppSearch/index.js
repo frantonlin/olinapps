@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { createMuiTheme, MuiThemeProvider } from 'material-ui/styles';
 import Typography from 'material-ui/Typography/Typography';
 import AppGrid from './AppGrid';
+import './AppGridItemFont.css';
 var axios  = require('axios');
 
 const baseTheme = createMuiTheme();

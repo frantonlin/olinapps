@@ -17,14 +17,14 @@ const styles = theme => ({
     position: 'relative',
   },
   itemLetter: {
+    fontFamily: '"LOT", "Roboto", "Helvetica", "Arial", sans-serif',
     fontSize: '5rem',
     [theme.breakpoints.down('sm')]: {
       fontSize: '4rem',
     },
-    fontWeight: '600',
     textTransform: 'uppercase',
-    color: '#607D8B',
     opacity: '0.8',
+    paddingTop: '16px',
   },
   vpnLock: {
     position: 'absolute',
@@ -53,7 +53,7 @@ const AppGridItem = ({ app, classes }) => {
     <a href={app.url}>
       <div className={classes.item}>
         <div className={classes.itemImg}>
-          <span className={classes.itemLetter}>{app.name.charAt(0)}</span>
+          <span className={classes.itemLetter} style={{color: app.color}}>{app.letter}</span>
           {app.intranet ?
             <VpnLockIcon className={classes.vpnLock} />
           :

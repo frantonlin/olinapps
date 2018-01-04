@@ -4,7 +4,7 @@
     "url": "http://www.tinyurl.com/olinreplicatorform",
     "img_url": null,
     "letter": "3",
-    "color": "#607D8B",
+    "color": "#2196F3",
     "type": "Form",
     "intranet": false,
     "keywords": "3D Print Log Form replicator prusa"
@@ -14,7 +14,7 @@
     "url": "https://docs.google.com/forms/d/e/1FAIpQLSerA8MaJEJ06e_teSviDW4CEwcuz-iEOKb0Jm5HfPQTwu6Ixg/viewform?usp=sf_link",
     "img_url": null,
     "letter": "C",
-    "color": "#607D8B",
+    "color": "#4CAF50",
     "type": "Form",
     "intranet": false,
     "keywords": "Club Spending Request Form"
@@ -24,7 +24,7 @@
     "url": "https://docs.google.com/forms/d/e/1FAIpQLSdBG2MNVjVwSXVoczhF0hYWCIFslUIeAjaaqNge9F9OcXZDSQ/viewform",
     "img_url": null,
     "letter": "R",
-    "color": "#607D8B",
+    "color": "#03A9F4",
     "type": "Form",
     "intranet": false,
     "keywords": "Reimbursement Request Form"
@@ -34,7 +34,7 @@
     "url": "http://bit.ly/ece_stockroom",
     "img_url": null,
     "letter": "E",
-    "color": "#607D8B",
+    "color": "#FF9800",
     "type": "Form",
     "intranet": false,
     "keywords": "ECE Stockroom Request EE Form"
@@ -43,7 +43,7 @@
     "name": "Parking Ticket Appeal Form",
     "url": "http://www.babson.edu/offices-services/public-safety/parking/Pages/parking-violation-appeal.aspx",
     "letter": "P",
-    "color": "#607D8B",
+    "color": "#F44336",
     "img_url": null,
     "type": "Form",
     "intranet": false,
@@ -54,8 +54,8 @@
     "url": "http://workorders.olin.edu/",
     "img_url": null,
     "letter": "W",
-    "color": "#607D8B",
-    "type": "Resource",
+    "color": "#8BC34A",
+    "type": "Form",
     "intranet": false,
     "keywords": "Workorder Form"
   },
@@ -66,7 +66,7 @@
     "letter": "C",
     "color": "#607D8B",
     "type": "Organization",
-    "intranet": false,
+    "intranet": true,
     "keywords": "CCO Committee for Clubs and Organizations"
   },
   {
@@ -74,7 +74,7 @@
     "url": "http://core.olin.edu/wiki/CORe_Knowledge_Base",
     "img_url": null,
     "letter": "C",
-    "color": "#607D8B",
+    "color": "#3F51B5",
     "type": "Organization",
     "intranet": true,
     "keywords": "CORe Council of Olin Representatives"
@@ -84,7 +84,7 @@
     "url": "http://www.olin.edu/academic-life/student-affairs-resources/student-life/honor-code/",
     "img_url": null,
     "letter": "H",
-    "color": "#607D8B",
+    "color": "#CDDC39",
     "type": "Organization",
     "intranet": false,
     "keywords": "Honor Board"
@@ -94,7 +94,7 @@
     "url": "http://www.olin.edu/academic-life/student-affairs-resources/student-life/community-service/",
     "img_url": null,
     "letter": "S",
-    "color": "#607D8B",
+    "color": "#673AB7",
     "type": "Organization",
     "intranet": false,
     "keywords": "SERV community service"
@@ -104,7 +104,7 @@
     "url": "http://slac.io/",
     "img_url": null,
     "letter": "S",
-    "color": "#607D8B",
+    "color": "#FFEB3B",
     "type": "Organization",
     "intranet": false,
     "keywords": "SLAC Stay Late and Create"
@@ -114,7 +114,7 @@
     "url": "http://www.olin.edu/students/academic-calendar-2017-18/",
     "img_url": null,
     "letter": "A",
-    "color": "#607D8B",
+    "color": "#00BCD4",
     "type": "Resource",
     "intranet": false,
     "keywords": "Academic Calendar"
@@ -124,7 +124,7 @@
     "url": "http://scheduler.olin.edu/",
     "img_url": null,
     "letter": "A",
-    "color": "#607D8B",
+    "color": "#3F51B5",
     "type": "Resource",
     "intranet": true,
     "keywords": "Ad Astra AdAstra Scheduler room reservation reserve"
@@ -134,7 +134,7 @@
     "url": "https://my.olin.edu/ICS/OlinDreamSpark_WebStore.jnz",
     "img_url": null,
     "letter": "D",
-    "color": "#607D8B",
+    "color": "#9C27B0",
     "type": "Resource",
     "intranet": false,
     "keywords": "Dreamspark Webstore software"
@@ -144,7 +144,7 @@
     "url": "http://www.olin.edu/events/event-calendar/",
     "img_url": null,
     "letter": "E",
-    "color": "#607D8B",
+    "color": "#E91E63",
     "type": "Resource",
     "intranet": false,
     "keywords": "Events Calendar"
@@ -154,7 +154,7 @@
     "url": "http://lists.olin.edu/",
     "img_url": null,
     "letter": "M",
-    "color": "#607D8B",
+    "color": "#795548",
     "type": "Resource",
     "intranet": false,
     "keywords": "Mailing Lists email"
@@ -164,7 +164,7 @@
     "url": "http://rebeccascafe.com/olin/menu-items/",
     "img_url": null,
     "letter": "O",
-    "color": "#607D8B",
+    "color": "#03A9F4",
     "type": "Resource",
     "intranet": false,
     "keywords": "Olin Dining Menu Rebeccas Cafe"
@@ -174,7 +174,7 @@
     "url": "http://www.flickr.com/photos/olin/",
     "img_url": null,
     "letter": "O",
-    "color": "#607D8B",
+    "color": "#FFC107",
     "type": "Resource",
     "intranet": false,
     "keywords": "Olin Images Photos olinimages flickr"
@@ -184,7 +184,7 @@
     "url": "https://eacct-olin-sp.blackboard.com/eaccounts/",
     "img_url": null,
     "letter": "O",
-    "color": "#607D8B",
+    "color": "#8BC34A",
     "type": "Resource",
     "intranet": false,
     "keywords": "One Card onecard"
@@ -194,7 +194,7 @@
     "url": "https://www.dineoncampus.com/babson/whats-on-the-menu",
     "img_url": null,
     "letter": "B",
-    "color": "#607D8B",
+    "color": "#4CAF50",
     "type": "Resource",
     "intranet": false,
     "keywords": "Babson Dining Menus Trim"
@@ -204,7 +204,7 @@
     "url": "https://webmail.olin.edu/",
     "img_url": null,
     "letter": "W",
-    "color": "#607D8B",
+    "color": "#3F51B5",
     "type": "Resource",
     "intranet": false,
     "keywords": "Webmail Outlook Web Access email owa"
@@ -214,7 +214,7 @@
     "url": "http://olingear.olin.edu/",
     "img_url": null,
     "letter": "O",
-    "color": "#607D8B",
+    "color": "#9E9E9E",
     "type": "Resource",
     "intranet": false,
     "keywords": "Olin Gear Store"
@@ -224,7 +224,7 @@
     "url": "http://portal.adp.com/",
     "img_url": null,
     "letter": "A",
-    "color": "#607D8B",
+    "color": "#F44336",
     "type": "Portal",
     "intranet": false,
     "keywords": "ADP Portal student employment"
@@ -234,7 +234,7 @@
     "url": "https://my.olin.edu/",
     "img_url": null,
     "letter": "M",
-    "color": "#607D8B",
+    "color": "#2196F3",
     "type": "Portal",
     "intranet": false,
     "keywords": "my.olin.edu"
@@ -244,7 +244,7 @@
     "url": "https://olin.joinhandshake.com/",
     "img_url": null,
     "letter": "H",
-    "color": "#607D8B",
+    "color": "#FFC107",
     "type": "Portal",
     "intranet": false,
     "keywords": "OlinJobFinder Olin Job Finder Handshake Careers"
@@ -254,7 +254,7 @@
     "url": "http://fwop.olin.edu/",
     "img_url": null,
     "letter": "F",
-    "color": "#607D8B",
+    "color": "#9E9E9E",
     "type": "Club",
     "intranet": false,
     "keywords": "FWOP Franklin W Olin Players"
@@ -264,7 +264,7 @@
     "url": "http://hpv.olin.edu/",
     "img_url": null,
     "letter": "H",
-    "color": "#607D8B",
+    "color": "#00BCD4",
     "type": "Club",
     "intranet": false,
     "keywords": "HVP Human Powered Vehicles"
@@ -274,7 +274,7 @@
     "url": "http://www.olinbaja.org/",
     "img_url": null,
     "letter": "B",
-    "color": "#607D8B",
+    "color": "#FFC107",
     "type": "Club",
     "intranet": false,
     "keywords": "Olin Mini Baja SAE"
@@ -284,7 +284,7 @@
     "url": "http://www.olinpowerchords.com/",
     "img_url": null,
     "letter": "P",
-    "color": "#607D8B",
+    "color": "#2196F3",
     "type": "Club",
     "intranet": false,
     "keywords": "Olin PowerChords a cappella'"
@@ -294,7 +294,7 @@
     "url": "http://olinfoundry.org/",
     "img_url": null,
     "letter": "F",
-    "color": "#607D8B",
+    "color": "#F44336",
     "type": "Club",
     "intranet": false,
     "keywords": "The Foundry startup"
@@ -304,7 +304,7 @@
     "url": "http://ahs.olin.edu/",
     "img_url": null,
     "letter": "A",
-    "color": "#607D8B",
+    "color": "#CDDC39",
     "type": "Department",
     "intranet": false,
     "keywords": "AHS Arts Humanities and Social Sciences"
@@ -314,7 +314,7 @@
     "url": "http://rebeccascafe.com/olin/",
     "img_url": null,
     "letter": "D",
-    "color": "#607D8B",
+    "color": "#4CAF50",
     "type": "Department",
     "intranet": false,
     "keywords": "Dining Services Rebeccas Cafe"
@@ -324,7 +324,7 @@
     "url": "http://www.olin.edu/community/facilities/",
     "img_url": null,
     "letter": "F",
-    "color": "#607D8B",
+    "color": "#795548",
     "type": "Department",
     "intranet": false,
     "keywords": "Facilities"
@@ -334,7 +334,7 @@
     "url": "http://library.olin.edu/",
     "img_url": null,
     "letter": "L",
-    "color": "#607D8B",
+    "color": "#E91E63",
     "type": "Department",
     "intranet": false,
     "keywords": "Library"
@@ -344,7 +344,7 @@
     "url": "http://machineshop.olin.edu/",
     "img_url": null,
     "letter": "M",
-    "color": "#607D8B",
+    "color": "#FF9800",
     "type": "Department",
     "intranet": false,
     "keywords": "Machine Shop"
@@ -354,7 +354,7 @@
     "url": "http://wikis.olin.edu/it/",
     "img_url": null,
     "letter": "O",
-    "color": "#607D8B",
+    "color": "#03A9F4",
     "type": "Department",
     "intranet": false,
     "keywords": "Olin IT Information Technology helpdesk"
@@ -364,7 +364,7 @@
     "url": "http://www.olin.edu/collaborate/careers-graduate-studies/",
     "img_url": null,
     "letter": "P",
-    "color": "#607D8B",
+    "color": "#673AB7",
     "type": "Department",
     "intranet": false,
     "keywords": "PGP Post Graduate Planning Career Services"
@@ -374,7 +374,7 @@
     "url": "http://www.olin.edu/academic-life/student-affairs-and-resources/",
     "img_url": null,
     "letter": "S",
-    "color": "#607D8B",
+    "color": "#2196F3",
     "type": "Department",
     "intranet": false,
     "keywords": "StAR Student Affairs and Resources"
@@ -384,7 +384,7 @@
     "url": "http://www.olin.edu/students/study-away/",
     "img_url": null,
     "letter": "S",
-    "color": "#607D8B",
+    "color": "#009688",
     "type": "Department",
     "intranet": false,
     "keywords": "Study Away Abroad"
@@ -394,7 +394,7 @@
     "url": "http://www.babson.edu/",
     "img_url": null,
     "letter": "B",
-    "color": "#607D8B",
+    "color": "#4CAF50",
     "type": "School",
     "intranet": false,
     "keywords": "Babson College"
@@ -404,7 +404,7 @@
     "url": "http://www.brandeis.edu/",
     "img_url": null,
     "letter": "B",
-    "color": "#607D8B",
+    "color": "#3F51B5",
     "type": "School",
     "intranet": false,
     "keywords": "Brandeis College"
@@ -414,7 +414,7 @@
     "url": "http://www.olin.edu/",
     "img_url": null,
     "letter": "O",
-    "color": "#607D8B",
+    "color": "#2196F3",
     "type": "School",
     "intranet": false,
     "keywords": "Olin College"
@@ -424,7 +424,7 @@
     "url": "http://www.wellesley.edu/",
     "img_url": null,
     "letter": "W",
-    "color": "#607D8B",
+    "color": "#3F51B5",
     "type": "School",
     "intranet": false,
     "keywords": "Wellesley College"

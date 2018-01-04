@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import { MuiThemeProvider, createMuiTheme, withStyles } from 'material-ui/styles';
 import pink from 'material-ui/colors/pink';
 import blueGrey from 'material-ui/colors/blueGrey';
 import red from 'material-ui/colors/red';
@@ -25,7 +25,13 @@ const theme = createMuiTheme({
       },
     },
   }
-})
+});
+
+const styles = {
+  app: {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+  },
+}
 
 class App extends Component {
 
@@ -46,7 +52,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
-        <div className="App">
+        <div className={this.props.classes.app}>
           <HeaderContainer title='OlinApps' />
 
           <Content />
@@ -58,4 +64,4 @@ class App extends Component {
   };
 }
 
-export default App;
+export default withStyles(styles)(App);
