@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from 'material-ui/styles';
-import AppSearch from '../AppSearch';
+import AppSearchContainer from '../AppSearchContainer';
 import Button from 'material-ui/Button';
 var axios  = require('axios');
 
@@ -31,7 +31,7 @@ class Content extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.content}>
-        <AppSearch />
+        <AppSearchContainer />
         <Button onClick={this.handleTest}>Get User</Button>
         <p>{this.state.authText}</p>
       </div>

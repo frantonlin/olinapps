@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography/Typography';
 import AppGridItem from './AppGridItem';
-import Divider from 'material-ui/Divider/Divider';
 
 const styles = theme => ({
   appGridContainer: {

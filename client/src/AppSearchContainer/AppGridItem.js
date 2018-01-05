@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withStyles } from 'material-ui/styles';
-import Card, { CardContent } from 'material-ui/Card';
 import Typography from 'material-ui/Typography/Typography';
 import VpnLockIcon from 'material-ui-icons/VpnLock';
 

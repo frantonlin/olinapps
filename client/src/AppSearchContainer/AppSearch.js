@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { createMuiTheme, MuiThemeProvider } from 'material-ui/styles';
-import Typography from 'material-ui/Typography/Typography';
 import AppGrid from './AppGrid';
 import './AppGridItemFont.css';
 var axios  = require('axios');
@@ -34,22 +33,24 @@ class AppSearch extends Component {
   getApps = () => {
     axios.get('/api/apps')
     .then(response => {
-      const groupedByType = this.groupAppsByType(response.data.apps);
-      const sectionOrder = response.data.sections.map(section => {
-        return section.name;
-      });
+      const appsBySection = this.groupAppsBySection(response.data.apps);
 
-      this.setState({
-        apps: groupedByType,
-        sections: sectionOrder,
-      });
+      // don't include sections that have no apps
+      const sectionOrder = response.data.sections.reduce((sections, section) => {
+        if (appsBySection[section.name] != null) {
+          sections.push(section.name);
+        }
+        return sections;
+      }, []);
+
+      this.props.initializeAppSearch(appsBySection, sectionOrder)
     })
     .catch(error => {
       // Error
     });
   };
 
-  groupAppsByType = (apps) => {
+  groupAppsBySection = (apps) => {
     let grouped = {};
     for (let i = 0; i < apps.length; i++) {
       const app = apps[i];
@@ -69,16 +70,11 @@ class AppSearch extends Component {
   render() {
     let appGrid = null;
 
-    if (this.state.apps != null && this.state.sections != null) {
-      // don't include sections that have no apps
-      appGrid = this.state.sections.reduce((appGrids, section) => {
-        if (this.state.apps[section] != null) {
-          appGrids.push(
-            <AppGrid key={section} section={section} apps={this.state.apps[section]} />
-          );
-        }
-        return appGrids;
-      }, []);
+    if (this.props.apps != null && this.props.visibleSections != null) {
+      // TODO: add no item indicator
+      appGrid = this.props.visibleSections.map(section =>
+        <AppGrid key={section} section={section} apps={this.props.apps[section]} />
+      );
     }
     return (
       <MuiThemeProvider theme={theme}>
