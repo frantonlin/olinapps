@@ -4,8 +4,21 @@ var router = express.Router();
 
 /* GET apps */
 router.get('/', (req, res, next) => {
-  db.any('SELECT * FROM apps')
-  .then(data => {
+  let data = {};
+  const query =
+   `SELECT apps.*, sections.name as section
+    FROM apps
+    JOIN sections ON apps.section_id=sections.section_id
+    ORDER BY sort_name;`;
+  db.many(query)
+  .then(apps => {
+    data.apps = apps;
+
+    const query = `SELECT name FROM sections ORDER BY position;`;
+    return db.many(query);
+  })
+  .then(sections => {
+    data.sections = sections;
     res.json(200, data);
   })
   .catch(error => {

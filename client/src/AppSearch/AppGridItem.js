@@ -53,7 +53,9 @@ const AppGridItem = ({ app, classes }) => {
     <a href={app.url}>
       <div className={classes.item}>
         <div className={classes.itemImg}>
-          <span className={classes.itemLetter} style={{color: app.color}}>{app.letter}</span>
+          <span className={classes.itemLetter} style={{color: app.color}}>
+            {app.sort_name.charAt(0)}
+          </span>
           {app.intranet ?
             <VpnLockIcon className={classes.vpnLock} />
           :

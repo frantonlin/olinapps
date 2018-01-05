@@ -28,7 +28,7 @@ const styles = theme => ({
   }
 });
 
-const AppGrid = ({ type, apps, classes }) => {
+const AppGrid = ({ section, apps, classes }) => {
   const appGridItems = apps.map(app =>
     <AppGridItem key={app.name} app={app} />
   );
@@ -40,7 +40,7 @@ const AppGrid = ({ type, apps, classes }) => {
 
   return (
     <div className={classes.appGridContainer}>
-      <Typography type="subheading" color="secondary" gutterBottom>{type}</Typography>
+      <Typography type="subheading" color="secondary" gutterBottom>{section}</Typography>
       <div className={classes.appGrid}>
         {appGridItems}
         {flexDummies}

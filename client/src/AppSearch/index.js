@@ -34,26 +34,32 @@ class AppSearch extends Component {
   getApps = () => {
     axios.get('/api/apps')
     .then(response => {
-      const sortedByType = this.sortAppsByType(response.data);
-      this.setState({apps: sortedByType});
+      const groupedByType = this.groupAppsByType(response.data.apps);
+      const sectionOrder = response.data.sections.map(section => {
+        return section.name;
+      });
+
+      this.setState({
+        apps: groupedByType,
+        sections: sectionOrder,
+      });
     })
     .catch(error => {
       // Error
     });
   };
 
-  sortAppsByType = (apps) => {
-    let sorted = {};
+  groupAppsByType = (apps) => {
+    let grouped = {};
     for (let i = 0; i < apps.length; i++) {
       const app = apps[i];
-      const type = app.type+'s';
-      if (sorted[type] == null) {
-        sorted[type] = [app];
+      if (grouped[app.section] == null) {
+        grouped[app.section] = [app];
       } else {
-        sorted[type].push(app);
+        grouped[app.section].push(app);
       }
     }
-    return sorted;
+    return grouped;
   }
 
   componentDidMount() {
@@ -62,10 +68,17 @@ class AppSearch extends Component {
 
   render() {
     let appGrid = null;
-    if (this.state.apps != null) {
-      appGrid = Object.entries(this.state.apps).map(([type, apps]) =>
-        <AppGrid key={type} type={type} apps={apps} />
-      );
+
+    if (this.state.apps != null && this.state.sections != null) {
+      // don't include sections that have no apps
+      appGrid = this.state.sections.reduce((appGrids, section) => {
+        if (this.state.apps[section] != null) {
+          appGrids.push(
+            <AppGrid key={section} section={section} apps={this.state.apps[section]} />
+          );
+        }
+        return appGrids;
+      }, []);
     }
     return (
       <MuiThemeProvider theme={theme}>

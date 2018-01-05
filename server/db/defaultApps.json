@@ -3,430 +3,430 @@
     "name": "3D Print Log Form",
     "url": "http://www.tinyurl.com/olinreplicatorform",
     "img_url": null,
-    "letter": "3",
+    "sort_name": "3D Print Log Form",
     "color": "#2196F3",
-    "type": "Form",
     "intranet": false,
-    "keywords": "3D Print Log Form replicator prusa"
+    "keywords": "3D Print Log Form replicator prusa",
+    "section": "Forms"
   },
   {
     "name": "Club Spending Request",
     "url": "https://docs.google.com/forms/d/e/1FAIpQLSerA8MaJEJ06e_teSviDW4CEwcuz-iEOKb0Jm5HfPQTwu6Ixg/viewform?usp=sf_link",
     "img_url": null,
-    "letter": "C",
+    "sort_name": "Club Spending Request",
     "color": "#4CAF50",
-    "type": "Form",
     "intranet": false,
-    "keywords": "Club Spending Request Form"
+    "keywords": "Club Spending Request Form",
+    "section": "Forms"
   },
   {
     "name": "Reimbursement Request",
     "url": "https://docs.google.com/forms/d/e/1FAIpQLSdBG2MNVjVwSXVoczhF0hYWCIFslUIeAjaaqNge9F9OcXZDSQ/viewform",
     "img_url": null,
-    "letter": "R",
+    "sort_name": "Reimbursement Request",
     "color": "#03A9F4",
-    "type": "Form",
     "intranet": false,
-    "keywords": "Reimbursement Request Form"
+    "keywords": "Reimbursement Request Form",
+    "section": "Forms"
   },
   {
     "name": "ECE Stockroom Parts Request",
     "url": "http://bit.ly/ece_stockroom",
     "img_url": null,
-    "letter": "E",
+    "sort_name": "ECE Stockroom Parts Request",
     "color": "#FF9800",
-    "type": "Form",
     "intranet": false,
-    "keywords": "ECE Stockroom Request EE Form"
+    "keywords": "ECE Stockroom Request EE Form",
+    "section": "Forms"
   },
   {
     "name": "Parking Ticket Appeal Form",
     "url": "http://www.babson.edu/offices-services/public-safety/parking/Pages/parking-violation-appeal.aspx",
-    "letter": "P",
+    "sort_name": "Parking Ticket Appeal Form",
     "color": "#F44336",
     "img_url": null,
-    "type": "Form",
     "intranet": false,
-    "keywords": "Parking Ticket Appeal Form"
+    "keywords": "Parking Ticket Appeal Form",
+    "section": "Forms"
   },
   {
     "name": "Workorder Form",
     "url": "http://workorders.olin.edu/",
     "img_url": null,
-    "letter": "W",
+    "sort_name": "Workorder Form",
     "color": "#8BC34A",
-    "type": "Form",
     "intranet": false,
-    "keywords": "Workorder Form"
+    "keywords": "Workorder Form",
+    "section": "Forms"
   },
   {
     "name": "CCO",
     "url": "http://cco.olin.edu/",
     "img_url": null,
-    "letter": "C",
+    "sort_name": "CCO",
     "color": "#607D8B",
-    "type": "Organization",
     "intranet": true,
-    "keywords": "CCO Committee for Clubs and Organizations"
+    "keywords": "CCO Committee for Clubs and Organizations",
+    "section": "Organizations"
   },
   {
     "name": "CORe",
     "url": "http://core.olin.edu/wiki/CORe_Knowledge_Base",
     "img_url": null,
-    "letter": "C",
+    "sort_name": "CORe",
     "color": "#3F51B5",
-    "type": "Organization",
     "intranet": true,
-    "keywords": "CORe Council of Olin Representatives"
+    "keywords": "CORe Council of Olin Representatives",
+    "section": "Organizations"
   },
   {
     "name": "Honor Board",
     "url": "http://www.olin.edu/academic-life/student-affairs-resources/student-life/honor-code/",
     "img_url": null,
-    "letter": "H",
+    "sort_name": "Honor Board",
     "color": "#CDDC39",
-    "type": "Organization",
     "intranet": false,
-    "keywords": "Honor Board"
+    "keywords": "Honor Board",
+    "section": "Organizations"
   },
   {
     "name": "SERV",
     "url": "http://www.olin.edu/academic-life/student-affairs-resources/student-life/community-service/",
     "img_url": null,
-    "letter": "S",
+    "sort_name": "SERV",
     "color": "#673AB7",
-    "type": "Organization",
     "intranet": false,
-    "keywords": "SERV community service"
+    "keywords": "SERV community service",
+    "section": "Organizations"
   },
   {
     "name": "SLAC",
     "url": "http://slac.io/",
     "img_url": null,
-    "letter": "S",
+    "sort_name": "SLAC",
     "color": "#FFEB3B",
-    "type": "Organization",
     "intranet": false,
-    "keywords": "SLAC Stay Late and Create"
+    "keywords": "SLAC Stay Late and Create",
+    "section": "Organizations"
   },
   {
     "name": "Academic Calendar",
     "url": "http://www.olin.edu/students/academic-calendar-2017-18/",
     "img_url": null,
-    "letter": "A",
+    "sort_name": "Academic Calendar",
     "color": "#00BCD4",
-    "type": "Resource",
     "intranet": false,
-    "keywords": "Academic Calendar"
+    "keywords": "Academic Calendar",
+    "section": "Resources"
   },
   {
     "name": "Ad Astra",
     "url": "http://scheduler.olin.edu/",
     "img_url": null,
-    "letter": "A",
+    "sort_name": "Ad Astra",
     "color": "#3F51B5",
-    "type": "Resource",
     "intranet": true,
-    "keywords": "Ad Astra AdAstra Scheduler room reservation reserve"
+    "keywords": "Ad Astra AdAstra Scheduler room reservation reserve",
+    "section": "Resources"
   },
   {
     "name": "Dreamspark Webstore",
     "url": "https://my.olin.edu/ICS/OlinDreamSpark_WebStore.jnz",
     "img_url": null,
-    "letter": "D",
+    "sort_name": "Dreamspark Webstore",
     "color": "#9C27B0",
-    "type": "Resource",
     "intranet": false,
-    "keywords": "Dreamspark Webstore software"
+    "keywords": "Dreamspark Webstore software",
+    "section": "Resources"
   },
   {
     "name": "Events Calendar",
     "url": "http://www.olin.edu/events/event-calendar/",
     "img_url": null,
-    "letter": "E",
+    "sort_name": "Events Calendar",
     "color": "#E91E63",
-    "type": "Resource",
     "intranet": false,
-    "keywords": "Events Calendar"
+    "keywords": "Events Calendar",
+    "section": "Resources"
   },
   {
     "name": "Mailing Lists",
     "url": "http://lists.olin.edu/",
     "img_url": null,
-    "letter": "M",
+    "sort_name": "Mailing Lists",
     "color": "#795548",
-    "type": "Resource",
     "intranet": false,
-    "keywords": "Mailing Lists email"
+    "keywords": "Mailing Lists email",
+    "section": "Resources"
   },
   {
     "name": "Olin Dining Menu",
     "url": "http://rebeccascafe.com/olin/menu-items/",
     "img_url": null,
-    "letter": "O",
+    "sort_name": "Olin Dining Menu",
     "color": "#03A9F4",
-    "type": "Resource",
     "intranet": false,
-    "keywords": "Olin Dining Menu Rebeccas Cafe"
+    "keywords": "Olin Dining Menu Rebeccas Cafe",
+    "section": "Resources"
   },
   {
     "name": "Olin Images",
     "url": "http://www.flickr.com/photos/olin/",
     "img_url": null,
-    "letter": "O",
+    "sort_name": "Olin Images",
     "color": "#FFC107",
-    "type": "Resource",
     "intranet": false,
-    "keywords": "Olin Images Photos olinimages flickr"
+    "keywords": "Olin Images Photos olinimages flickr",
+    "section": "Resources"
   },
   {
     "name": "One Card",
     "url": "https://eacct-olin-sp.blackboard.com/eaccounts/",
     "img_url": null,
-    "letter": "O",
+    "sort_name": "One Card",
     "color": "#8BC34A",
-    "type": "Resource",
     "intranet": false,
-    "keywords": "One Card onecard"
+    "keywords": "One Card onecard",
+    "section": "Resources"
   },
   {
     "name": "Babson Dining Menus",
     "url": "https://www.dineoncampus.com/babson/whats-on-the-menu",
     "img_url": null,
-    "letter": "B",
+    "sort_name": "Babson Dining Menus",
     "color": "#4CAF50",
-    "type": "Resource",
     "intranet": false,
-    "keywords": "Babson Dining Menus Trim"
+    "keywords": "Babson Dining Menus Trim",
+    "section": "Resources"
   },
   {
     "name": "Webmail",
     "url": "https://webmail.olin.edu/",
     "img_url": null,
-    "letter": "W",
+    "sort_name": "Webmail",
     "color": "#3F51B5",
-    "type": "Resource",
     "intranet": false,
-    "keywords": "Webmail Outlook Web Access email owa"
+    "keywords": "Webmail Outlook Web Access email owa",
+    "section": "Resources"
   },
   {
     "name": "Olin Gear Store",
     "url": "http://olingear.olin.edu/",
     "img_url": null,
-    "letter": "O",
+    "sort_name": "Olin Gear Store",
     "color": "#9E9E9E",
-    "type": "Resource",
     "intranet": false,
-    "keywords": "Olin Gear Store"
+    "keywords": "Olin Gear Store",
+    "section": "Resources"
   },
   {
     "name": "ADP Portal",
     "url": "http://portal.adp.com/",
     "img_url": null,
-    "letter": "A",
+    "sort_name": "ADP Portal",
     "color": "#F44336",
-    "type": "Portal",
     "intranet": false,
-    "keywords": "ADP Portal student employment"
+    "keywords": "ADP Portal student employment",
+    "section": "Portals"
   },
   {
     "name": "my.olin.edu",
     "url": "https://my.olin.edu/",
     "img_url": null,
-    "letter": "M",
+    "sort_name": "my.olin.edu",
     "color": "#2196F3",
-    "type": "Portal",
     "intranet": false,
-    "keywords": "my.olin.edu"
+    "keywords": "my.olin.edu",
+    "section": "Portals"
   },
   {
     "name": "Olin Handshake",
     "url": "https://olin.joinhandshake.com/",
     "img_url": null,
-    "letter": "H",
+    "sort_name": "Handshake",
     "color": "#FFC107",
-    "type": "Portal",
     "intranet": false,
-    "keywords": "OlinJobFinder Olin Job Finder Handshake Careers"
+    "keywords": "OlinJobFinder Olin Job Finder Handshake Careers",
+    "section": "Portals"
   },
   {
     "name": "FWOP",
     "url": "http://fwop.olin.edu/",
     "img_url": null,
-    "letter": "F",
+    "sort_name": "FWOP",
     "color": "#9E9E9E",
-    "type": "Club",
     "intranet": false,
-    "keywords": "FWOP Franklin W Olin Players"
+    "keywords": "FWOP Franklin W Olin Players",
+    "section": "Clubs"
   },
   {
     "name": "HPV",
     "url": "http://hpv.olin.edu/",
     "img_url": null,
-    "letter": "H",
+    "sort_name": "HPV",
     "color": "#00BCD4",
-    "type": "Club",
     "intranet": false,
-    "keywords": "HVP Human Powered Vehicles"
+    "keywords": "HVP Human Powered Vehicles",
+    "section": "Clubs"
   },
   {
     "name": "Olin Baja",
     "url": "http://www.olinbaja.org/",
     "img_url": null,
-    "letter": "B",
+    "sort_name": "Baja",
     "color": "#FFC107",
-    "type": "Club",
     "intranet": false,
-    "keywords": "Olin Mini Baja SAE"
+    "keywords": "Olin Mini Baja SAE",
+    "section": "Clubs"
   },
   {
     "name": "Olin PowerChords",
     "url": "http://www.olinpowerchords.com/",
     "img_url": null,
-    "letter": "P",
+    "sort_name": "PowerChords",
     "color": "#2196F3",
-    "type": "Club",
     "intranet": false,
-    "keywords": "Olin PowerChords a cappella'"
+    "keywords": "Olin PowerChords a cappella'",
+    "section": "Clubs"
   },
   {
     "name": "The Foundry",
     "url": "http://olinfoundry.org/",
     "img_url": null,
-    "letter": "F",
+    "sort_name": "Foundry",
     "color": "#F44336",
-    "type": "Club",
     "intranet": false,
-    "keywords": "The Foundry startup"
+    "keywords": "The Foundry startup",
+    "section": "Clubs"
   },
   {
     "name": "AHS",
     "url": "http://ahs.olin.edu/",
     "img_url": null,
-    "letter": "A",
+    "sort_name": "AHS",
     "color": "#CDDC39",
-    "type": "Department",
     "intranet": false,
-    "keywords": "AHS Arts Humanities and Social Sciences"
+    "keywords": "AHS Arts Humanities and Social Sciences",
+    "section": "Departments"
   },
   {
     "name": "Dining Services",
     "url": "http://rebeccascafe.com/olin/",
     "img_url": null,
-    "letter": "D",
+    "sort_name": "Dining Services",
     "color": "#4CAF50",
-    "type": "Department",
     "intranet": false,
-    "keywords": "Dining Services Rebeccas Cafe"
+    "keywords": "Dining Services Rebeccas Cafe",
+    "section": "Departments"
   },
   {
     "name": "Facilities",
     "url": "http://www.olin.edu/community/facilities/",
     "img_url": null,
-    "letter": "F",
+    "sort_name": "Facilities",
     "color": "#795548",
-    "type": "Department",
     "intranet": false,
-    "keywords": "Facilities"
+    "keywords": "Facilities",
+    "section": "Departments"
   },
   {
     "name": "Library",
     "url": "http://library.olin.edu/",
     "img_url": null,
-    "letter": "L",
+    "sort_name": "Library",
     "color": "#E91E63",
-    "type": "Department",
     "intranet": false,
-    "keywords": "Library"
+    "keywords": "Library",
+    "section": "Departments"
   },
   {
     "name": "Machine Shop",
     "url": "http://machineshop.olin.edu/",
     "img_url": null,
-    "letter": "M",
+    "sort_name": "Machine Shop",
     "color": "#FF9800",
-    "type": "Department",
     "intranet": false,
-    "keywords": "Machine Shop"
+    "keywords": "Machine Shop",
+    "section": "Departments"
   },
   {
     "name": "Olin IT",
     "url": "http://wikis.olin.edu/it/",
     "img_url": null,
-    "letter": "O",
+    "sort_name": "Olin IT",
     "color": "#03A9F4",
-    "type": "Department",
     "intranet": false,
-    "keywords": "Olin IT Information Technology helpdesk"
+    "keywords": "Olin IT Information Technology helpdesk",
+    "section": "Departments"
   },
   {
     "name": "PGP",
     "url": "http://www.olin.edu/collaborate/careers-graduate-studies/",
     "img_url": null,
-    "letter": "P",
+    "sort_name": "PGP",
     "color": "#673AB7",
-    "type": "Department",
     "intranet": false,
-    "keywords": "PGP Post Graduate Planning Career Services"
+    "keywords": "PGP Post Graduate Planning Career Services",
+    "section": "Departments"
   },
   {
     "name": "StAR",
     "url": "http://www.olin.edu/academic-life/student-affairs-and-resources/",
     "img_url": null,
-    "letter": "S",
+    "sort_name": "StAR",
     "color": "#2196F3",
-    "type": "Department",
     "intranet": false,
-    "keywords": "StAR Student Affairs and Resources"
+    "keywords": "StAR Student Affairs and Resources",
+    "section": "Departments"
   },
   {
     "name": "Study Away",
     "url": "http://www.olin.edu/students/study-away/",
     "img_url": null,
-    "letter": "S",
+    "sort_name": "Study Away",
     "color": "#009688",
-    "type": "Department",
     "intranet": false,
-    "keywords": "Study Away Abroad"
+    "keywords": "Study Away Abroad",
+    "section": "Departments"
   },
   {
     "name": "Babson",
     "url": "http://www.babson.edu/",
     "img_url": null,
-    "letter": "B",
+    "sort_name": "Babson",
     "color": "#4CAF50",
-    "type": "School",
     "intranet": false,
-    "keywords": "Babson College"
+    "keywords": "Babson College",
+    "section": "Schools"
   },
   {
     "name": "Brandeis",
     "url": "http://www.brandeis.edu/",
     "img_url": null,
-    "letter": "B",
+    "sort_name": "Brandeis",
     "color": "#3F51B5",
-    "type": "School",
     "intranet": false,
-    "keywords": "Brandeis College"
+    "keywords": "Brandeis College",
+    "section": "Schools"
   },
   {
     "name": "Olin",
     "url": "http://www.olin.edu/",
     "img_url": null,
-    "letter": "O",
+    "sort_name": "Olin",
     "color": "#2196F3",
-    "type": "School",
     "intranet": false,
-    "keywords": "Olin College"
+    "keywords": "Olin College",
+    "section": "Schools"
   },
   {
     "name": "Wellesley",
     "url": "http://www.wellesley.edu/",
     "img_url": null,
-    "letter": "W",
+    "sort_name": "Wellesley",
     "color": "#3F51B5",
-    "type": "School",
     "intranet": false,
-    "keywords": "Wellesley College"
+    "keywords": "Wellesley College",
+    "section": "Schools"
   }
 ]
