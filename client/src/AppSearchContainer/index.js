@@ -5,15 +5,15 @@ import { initializeAppSearch } from './actions'
 const mapStateToProps = state => {
   return {
     apps: state.appSearch.apps,
+    appsBySection: state.appSearch.appsBySection,
     sections: state.appSearch.sections,
-    visibleSections: state.appSearch.visibleSections,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    initializeAppSearch: (apps, sections) => {
-      dispatch(initializeAppSearch(apps, sections));
+    initializeAppSearch: (apps, appsBySection, sections) => {
+      dispatch(initializeAppSearch(apps, appsBySection, sections));
     },
   };
 };

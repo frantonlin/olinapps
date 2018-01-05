@@ -13,8 +13,8 @@ import DisabledLoadingIndicator from './DisabledLoadingIndicator';
 
 const styles = theme => ({
   DialogContent: {
-    maxWidth: '280px',
-    paddingTop: '20px',
+    maxWidth: '320px',
+    paddingTop: '20px', // TODO: fix padding override consistency
     paddingBottom: '0px',
   },
   error: {

@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import { createMuiTheme, MuiThemeProvider } from 'material-ui/styles';
+import { createMuiTheme, MuiThemeProvider, withStyles } from 'material-ui/styles';
 import AppGrid from './AppGrid';
+import Paper from 'material-ui/Paper/Paper';
+import SearchIcon from 'material-ui-icons/Search';
+import ClearIcon from 'material-ui-icons/Clear';
+import IconButton from 'material-ui/IconButton';
+import Input from 'material-ui/Input';
 import './AppGridItemFont.css';
 var axios  = require('axios');
 
@@ -25,60 +30,162 @@ const theme = createMuiTheme({
   },
 });
 
+const styles = theme => ({
+  searchBar: {
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    ...theme.mixins.gutters({}),
+  },
+  searchIcon: {
+    marginRight: theme.spacing.unit,
+  },
+  searchInput: {
+    flex: 1,
+  },
+  appGrid: {
+    paddingTop: '16px',
+    ...theme.mixins.gutters({}),
+  },
+});
+
 class AppSearch extends Component {
   state = {
-    apps: undefined
+    appsBySection: {},
+    sections: [],
+    filter: ''
   };
 
   getApps = () => {
     axios.get('/api/apps')
     .then(response => {
-      const appsBySection = this.groupAppsBySection(response.data.apps);
+      const apps = response.data.apps;
+      const appsBySection = apps.reduce((sections, app) => {
+        if (sections[app.section] == null) {
+          sections[app.section] = [app];
+        } else {
+          sections[app.section].push(app);
+        }
+        return sections;
+      }, {});
 
       // don't include sections that have no apps
-      const sectionOrder = response.data.sections.reduce((sections, section) => {
+      const sections = response.data.sections.reduce((sections, section) => {
         if (appsBySection[section.name] != null) {
           sections.push(section.name);
         }
         return sections;
       }, []);
 
-      this.props.initializeAppSearch(appsBySection, sectionOrder)
+      this.props.initializeAppSearch(apps, appsBySection, sections);
+      if (this.state.filter !== '') {
+        this.filterApps(this.state.filter);
+      } else {
+        this.setState({appsBySection, sections});
+      }
     })
     .catch(error => {
       // Error
     });
   };
 
-  groupAppsBySection = (apps) => {
-    let grouped = {};
-    for (let i = 0; i < apps.length; i++) {
-      const app = apps[i];
-      if (grouped[app.section] == null) {
-        grouped[app.section] = [app];
-      } else {
-        grouped[app.section].push(app);
+  focusSearch = event => {
+    this.searchInput.focus();
+  };
+
+  onFilter = event => {
+    this.setState({filter: event.target.value});
+    this.filterApps(event.target.value);
+  };
+
+  filterApps = (filter) => {
+
+    // filter for results by ANDing the keywords together
+    // ^(?=.*\bWORD)(?=.*\bWORD).*$
+    
+    // replace extra whitespace with single space and strip leading space
+    const keywords = filter.replace(/\s+/g,' ').replace(/^\s+/,'').split(' ');
+    
+    // not empty string or just spaces, so filter
+    if (keywords[0] !== "") {
+      let regex = '^';
+      for (let i = 0; i < keywords.length-1; i++) {
+        // force text followed by space to match whole words
+        regex += '(?=.*\\b' + keywords[i] + '\\b)';
       }
+      // last text (not followed by space) can be incomplete word
+      regex += '(?=.*\\b' + keywords[keywords.length-1] + ').*$';
+      // console.log(keywords + ' | ' + regex);
+    
+      const search = new RegExp(regex, 'i');
+      
+      const results = this.props.apps.reduce((apps, app) => {
+        if(app.keywords.match(search)) {
+          apps.push(app);
+        }
+        return apps;
+      }, []);
+
+      this.setState({
+        appsBySection: {results},
+        sections: ['results'],
+      });
+    } else { // emptry string or just spaces, so show all
+      this.setState({
+        appsBySection: this.props.appsBySection,
+        sections: this.props.sections,
+      });
     }
-    return grouped;
   }
+
+  clearSearch = event => {
+    this.setState({
+      filter: '',
+      appsBySection: this.props.appsBySection,
+      sections: this.props.sections,
+    });
+    this.searchInput.focus();
+  };
 
   componentDidMount() {
     this.getApps();
-  }
+    this.searchInput.focus();
+  };
 
   render() {
-    let appGrid = null;
+    const { classes } = this.props;
 
-    if (this.props.apps != null && this.props.visibleSections != null) {
-      // TODO: add no item indicator
-      appGrid = this.props.visibleSections.map(section =>
-        <AppGrid key={section} section={section} apps={this.props.apps[section]} />
+    let appGrid = null;
+    if (Object.keys(this.state.appsBySection).length > 0 && 
+        this.state.sections.length > 0) {
+      appGrid = this.state.sections.map(section =>
+        <AppGrid
+          key={section}
+          section={section}
+          apps={this.state.appsBySection[section]}
+        />
       );
     }
+
     return (
       <MuiThemeProvider theme={theme}>
-        <div>
+        <Paper className={classes.searchBar} elevation={1}>
+          <IconButton disableRipple onClick={this.focusSearch}><SearchIcon /></IconButton>
+          <Input
+            className={classes.searchInput}
+            placeholder="Search"
+            inputRef={input => this.searchInput = input}
+            onChange={this.onFilter}
+            value={this.state.filter}
+            disableUnderline
+          />
+          {this.state.filter === '' ? 
+            null
+          :
+            <IconButton disableRipple onClick={this.clearSearch}><ClearIcon /></IconButton>
+          }
+        </Paper>
+        <div className={classes.appGrid}>
           {appGrid}
         </div>
       </MuiThemeProvider>
@@ -86,4 +193,4 @@ class AppSearch extends Component {
   };
 }
 
-export default AppSearch;
+export default withStyles(styles)(AppSearch);

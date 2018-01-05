@@ -1,12 +1,17 @@
-const appSearch = (state = {}, action) => {
+const initialState = {
+  apps: [],
+  appsBySection: {},
+  sections: [],
+};
+
+const appSearch = (state = initialState, action) => {
   switch (action.type) {
     case 'INITIALIZE_APPSEARCH':
-      state = {
+      return Object.assign({}, state, {
         apps: action.apps,
+        appsBySection: action.appsBySection,
         sections: action.sections,
-        visibleSections: action.sections,
-      };
-      return state;
+      });
     default:
       return state;
   }

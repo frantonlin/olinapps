@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
-import { withStyles } from 'material-ui/styles';
 import AppSearchContainer from '../AppSearchContainer';
 import Button from 'material-ui/Button';
 var axios  = require('axios');
-
-const styles = theme => ({
-  content: {
-    paddingTop: '16px',
-    ...theme.mixins.gutters({})
-  },
-});
 
 class Content extends Component {
   state = {
@@ -28,9 +20,8 @@ class Content extends Component {
   };
 
   render() {
-    const { classes } = this.props;
     return (
-      <div className={classes.content}>
+      <div>
         <AppSearchContainer />
         <Button onClick={this.handleTest}>Get User</Button>
         <p>{this.state.authText}</p>
@@ -39,4 +30,4 @@ class Content extends Component {
   };
 }
 
-export default withStyles(styles)(Content);
+export default Content;
