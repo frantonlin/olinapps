@@ -24,6 +24,8 @@ const styles = theme => ({
     textTransform: 'uppercase',
     opacity: '0.8',
     paddingTop: '16px',
+    width: '100%',
+    textAlign: 'center',
   },
   vpnLock: {
     position: 'absolute',
