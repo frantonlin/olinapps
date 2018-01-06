@@ -24,6 +24,17 @@ const theme = createMuiTheme({
         backgroundColor: palette.secondary['500'],
       },
     },
+    MuiToolbar: {
+      root: {
+        minHeight: 64,
+        "@media (min-width:0px) and (orientation: landscape)": {
+          "minHeight": 64
+        },
+        "@media (min-width:600px)": {
+          "minHeight": 64
+        }
+      }
+    }
   }
 });
 

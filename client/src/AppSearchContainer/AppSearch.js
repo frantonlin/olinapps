@@ -6,6 +6,7 @@ import SearchIcon from 'material-ui-icons/Search';
 import ClearIcon from 'material-ui-icons/Clear';
 import IconButton from 'material-ui/IconButton';
 import Input from 'material-ui/Input';
+import Sticky from '../Sticky';
 import './AppGridItemFont.css';
 var axios  = require('axios');
 
@@ -96,6 +97,11 @@ class AppSearch extends Component {
   onFilter = event => {
     this.setState({filter: event.target.value});
     this.filterApps(event.target.value);
+
+    const scrollTop = window.scrollY;
+    if (scrollTop > this.state.scrollToHeight) {
+      window.scrollTo(0, this.state.scrollToHeight);
+    }
   };
 
   filterApps = (filter) => {
@@ -147,6 +153,10 @@ class AppSearch extends Component {
     this.searchInput.focus();
   };
 
+  setScrollToHeight = (height) => {
+    this.setState({scrollToHeight: height});
+  };
+
   componentDidMount() {
     this.getApps();
     this.searchInput.focus();
@@ -169,22 +179,24 @@ class AppSearch extends Component {
 
     return (
       <MuiThemeProvider theme={theme}>
-        <Paper className={classes.searchBar} elevation={1}>
-          <IconButton disableRipple onClick={this.focusSearch}><SearchIcon /></IconButton>
-          <Input
-            className={classes.searchInput}
-            placeholder="Search"
-            inputRef={input => this.searchInput = input}
-            onChange={this.onFilter}
-            value={this.state.filter}
-            disableUnderline
-          />
-          {this.state.filter === '' ? 
-            null
-          :
-            <IconButton disableRipple onClick={this.clearSearch}><ClearIcon /></IconButton>
-          }
-        </Paper>
+        <Sticky passInitialTop={this.setScrollToHeight}>
+          <Paper className={classes.searchBar} elevation={1}>
+            <IconButton disableRipple onClick={this.focusSearch}><SearchIcon /></IconButton>
+            <Input
+              className={classes.searchInput}
+              placeholder="Search"
+              inputRef={input => this.searchInput = input}
+              onChange={this.onFilter}
+              value={this.state.filter}
+              disableUnderline
+            />
+            {this.state.filter === '' ? 
+              null
+            :
+              <IconButton disableRipple onClick={this.clearSearch}><ClearIcon /></IconButton>
+            }
+          </Paper>
+        </Sticky>
         <div className={classes.appGrid}>
           {appGrid}
         </div>
