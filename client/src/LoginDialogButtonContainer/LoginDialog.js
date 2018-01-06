@@ -14,7 +14,6 @@ import DisabledLoadingIndicator from './DisabledLoadingIndicator';
 const styles = theme => ({
   DialogContent: {
     maxWidth: '320px',
-    paddingTop: '20px', // TODO: fix padding override consistency
     paddingBottom: '0px',
   },
   error: {
@@ -115,7 +114,6 @@ class LoginDialog extends Component {
         open={this.props.open}
         onClose={this.props.onRequestClose}
       >
-        <DisabledLoadingIndicator size={45} isLoading={this.props.isLoading} />
         <DialogContent className={classes.DialogContent}>
           <form id="loginForm" onSubmit={this.handleSubmit} className={classes.container}>
             {LoginError}
@@ -187,6 +185,8 @@ class LoginDialog extends Component {
             login
           </Button>
         </DialogActions>
+
+        <DisabledLoadingIndicator size={45} isLoading={this.props.isLoading} />
       </Dialog>
     );
   };
