@@ -6,6 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import appReducer from './appReducer';
 import Reboot from 'material-ui/Reboot';
 import AppContainer from './AppContainer';
+import './index.css';
 
 let store = createStore(appReducer);
 

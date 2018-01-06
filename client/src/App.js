@@ -18,29 +18,35 @@ let palette = {
 palette.error.A400 = red['500'];
 const theme = createMuiTheme({
   palette,
+  mixins: {
+    toolbar: {
+      minHeight: 64,
+      '@media (min-width:0px) and (orientation: landscape)': {
+        minHeight: 64
+      },
+      '@media (min-width:600px)': {
+        minHeight: 64
+      }
+    }
+  },
   overrides: {
     MuiAppBar: {
       colorAccent: {
         backgroundColor: palette.secondary['500'],
       },
     },
-    MuiToolbar: {
-      root: {
-        minHeight: 64,
-        "@media (min-width:0px) and (orientation: landscape)": {
-          "minHeight": 64
-        },
-        "@media (min-width:600px)": {
-          "minHeight": 64
-        }
-      }
-    }
   }
 });
 
 const styles = {
   app: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    minHeight: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  content: {
+    flex: 1,
   },
 }
 
@@ -61,12 +67,13 @@ class App extends Component {
   }
 
   render() {
+    const { classes } = this.props;
     return (
       <MuiThemeProvider theme={theme}>
-        <div className={this.props.classes.app}>
+        <div className={classes.app}>
           <HeaderContainer title='OlinApps' />
 
-          <Content />
+          <Content className={classes.content} />
 
           <Footer />
         </div>

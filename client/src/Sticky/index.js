@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { withStyles } from 'material-ui/styles';
 
 const styles = {
+  default: {
+    position: 'relative',
+  },
   sticky: {
     position: 'fixed',
     top: '0',
@@ -30,7 +33,6 @@ class Sticky extends Component {
       initialTop: boundingClientRect.top,
       height: boundingClientRect.height,
     });
-    this.props.passInitialTop(boundingClientRect.top);
     document.addEventListener('scroll', this.onScroll);
   };
 
@@ -39,7 +41,8 @@ class Sticky extends Component {
     return (
       <div ref={div => this.node = div}>
         <div
-          className={this.state.sticky ? classes.sticky : null}
+          className={this.state.sticky ? classes.sticky : classes.default}
+          style={this.props.style}
         >
           {children}
         </div>

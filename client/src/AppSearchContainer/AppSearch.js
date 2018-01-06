@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { createMuiTheme, MuiThemeProvider, withStyles } from 'material-ui/styles';
+import { createMuiTheme, MuiThemeProvider, withStyles, withTheme } from 'material-ui/styles';
 import AppGrid from './AppGrid';
 import Paper from 'material-ui/Paper/Paper';
 import SearchIcon from 'material-ui-icons/Search';
@@ -38,9 +38,6 @@ const styles = theme => ({
     alignItems: 'center',
     ...theme.mixins.gutters({}),
   },
-  searchIcon: {
-    marginRight: theme.spacing.unit,
-  },
   searchInput: {
     flex: 1,
   },
@@ -54,7 +51,8 @@ class AppSearch extends Component {
   state = {
     appsBySection: {},
     sections: [],
-    filter: ''
+    filter: '',
+    scrollToHeight: this.props.theme.mixins.toolbar.minHeight,
   };
 
   getApps = () => {
@@ -153,10 +151,6 @@ class AppSearch extends Component {
     this.searchInput.focus();
   };
 
-  setScrollToHeight = (height) => {
-    this.setState({scrollToHeight: height});
-  };
-
   componentDidMount() {
     this.getApps();
     this.searchInput.focus();
@@ -179,8 +173,8 @@ class AppSearch extends Component {
 
     return (
       <MuiThemeProvider theme={theme}>
-        <Sticky passInitialTop={this.setScrollToHeight}>
-          <Paper className={classes.searchBar} elevation={1}>
+        <Sticky style={{zIndex: this.props.theme.zIndex.appBar}}>
+          <Paper className={classes.searchBar} elevation={4}>
             <IconButton disableRipple onClick={this.focusSearch}><SearchIcon /></IconButton>
             <Input
               className={classes.searchInput}
@@ -205,4 +199,4 @@ class AppSearch extends Component {
   };
 }
 
-export default withStyles(styles)(AppSearch);
+export default withStyles(styles)(withTheme()(AppSearch));

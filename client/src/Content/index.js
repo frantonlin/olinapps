@@ -21,7 +21,7 @@ class Content extends Component {
 
   render() {
     return (
-      <div>
+      <div className={this.props.className}>
         <AppSearchContainer />
         <Button onClick={this.handleTest}>Get User</Button>
         <p>{this.state.authText}</p>
