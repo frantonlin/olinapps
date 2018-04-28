@@ -183,7 +183,7 @@
     "name": "One Card",
     "url": "https://eacct-olin-sp.blackboard.com/eaccounts/",
     "img_url": null,
-    "sort_name": "One Card",
+    "sort_name": "OneCard",
     "color": "#8BC34A",
     "intranet": false,
     "keywords": "One Card onecard",
@@ -217,6 +217,16 @@
     "color": "#9E9E9E",
     "intranet": false,
     "keywords": "Olin Gear Store",
+    "section": "Resources"
+  },
+  {
+    "name": "LaundryView",
+    "url": "http://laundryview.com/lvs.php",
+    "img_url": null,
+    "sort_name": "LaundryView",
+    "color": "#9E9E9E",
+    "intranet": false,
+    "keywords": "Laundry View laundryview",
     "section": "Resources"
   },
   {
