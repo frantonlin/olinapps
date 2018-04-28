@@ -1,0 +1,10 @@
+#!/bin/bash
+git checkout -B build
+npm run buildclient
+# git rm -r --cached ./client
+git add client/build -f
+git commit -m "build of $(git rev-parse HEAD)"
+git push origin build -f
+git push temp build -f
+git checkout -
+# git reset HEAD
